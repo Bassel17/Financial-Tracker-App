@@ -4,6 +4,26 @@ import { Input,Button,Text } from 'react-native-elements';
 import {StyleSheet, View} from 'react-native';
 
 export default class LoginPage extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      userEmail:"",
+      userPassword:""
+    }
+  }
+
+  handleUserEmailChange = (event) => {
+    this.setState({
+      userEmail:event.target.value
+    });
+  }
+
+  handleUserPasswordChange = (event) => {
+    this.setState({
+      userPassword:event.target.value
+    })
+  }
+
   render(){
     return (
       <View style= {styles.container}>
@@ -15,6 +35,8 @@ export default class LoginPage extends React.Component{
         </Text>
         <Input
           placeholder='Email'
+          value={this.state.userEmail}
+          onChange={this.handleUserEmailChange}
           inputContainerStyle={{
             margin:20
           }}
@@ -29,6 +51,8 @@ export default class LoginPage extends React.Component{
   
       <Input
           placeholder='Password'
+          value={this.state.userPassword}
+          onChange={this.handleUserPasswordChange}
           inputContainerStyle={{
             margin:20
           }}
