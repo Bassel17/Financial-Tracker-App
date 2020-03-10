@@ -7,6 +7,12 @@ export default class LoginPage extends React.Component{
   render(){
     return (
       <View style= {styles.container}>
+        <Text h1 style={{
+          textAlign:"center",
+          marginBottom:"20%"
+        }}>
+          FINANCIAL TRACKER
+        </Text>
         <Input
           placeholder='Email'
           inputContainerStyle={{
@@ -58,20 +64,21 @@ export default class LoginPage extends React.Component{
       </Text>
       <Button type ="clear" title="click here"/>
     </View>
-    <Button
-      title="Sign up"
-      type="clear"
-      buttonStyle={{
-        width:"50%",
-        backgroundColorst:"black"
-      }}
-      containerStyle={{
-        marginLeft:"25%",
-        width:"100%",
-        position:"absolute",
-        top:300
-      }}
-    />
+      <Button
+        title="Sign up"
+        type="clear"
+        buttonStyle={{
+          width:"50%",
+          backgroundColorst:"black"
+        }}
+        containerStyle={{
+          display:"flex",
+          width:"100%",
+          marginTop:50,
+          alignItems:"center",
+          alignSelf:"flex-end"
+        }}
+      />
     </View>
     )
 }
@@ -79,7 +86,10 @@ export default class LoginPage extends React.Component{
 const styles = StyleSheet.create({
   container:{
     width:"100%",
-    display:"flex"
+    height:"100%",
+    display:"flex",
+    alignContent:"center",
+    justifyContent:"center"
   },
   apply:{
     marginLeft:"25%",
