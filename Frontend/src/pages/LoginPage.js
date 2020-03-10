@@ -1,20 +1,61 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-import Inputbox from '../components/Inputbox';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Input,Button } from 'react-native-elements';
+import {StyleSheet, View} from 'react-native';
 
-export default function LoginPage() {
-  return (
-    <View style={styles.container}>
-     <Inputbox/>
-    </View>
-  );
+export default class LoginPage extends React.Component{
+  render(){
+    return (
+      <View style= {styles.container}>
+        <Input
+          placeholder='Email'
+          inputContainerStyle={{
+            margin:20
+          }}
+          rightIcon={
+              <Icon
+              name='user'
+              size={24}
+              color='black'
+              />
+            }
+        />
+  
+      <Input
+          placeholder='Password'
+          inputContainerStyle={{
+            margin:20
+          }}
+          secureTextEntry={true}
+          rightIcon={
+              <Icon
+              name='lock'
+              size={24}
+              color='black'
+              />
+            }
+        />
+
+    <Button
+      title="Login"
+      buttonStyle={{
+        width:"50%",
+        backgroundColor:"black"
+      }}
+      containerStyle={{
+        marginLeft:"25%",
+        width:"100%",
+        display:'flex',
+        alignContent:'center'
+      }}
+    />
+
+      </View>
+    )
+  }
 }
-
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-  });
+  container:{
+    width:"100%"
+  }
+});
