@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input,Button } from 'react-native-elements';
+import { Input,Button,Text } from 'react-native-elements';
 import {StyleSheet, View} from 'react-native';
 
 export default class LoginPage extends React.Component{
@@ -49,13 +49,40 @@ export default class LoginPage extends React.Component{
         alignContent:'center'
       }}
     />
-
-      </View>
+    <View style={{
+      display:'flex',
+      flexDirection:'row'
+    }}>
+      <Text style={styles.apply}>
+        Forgot password ?
+      </Text>
+      <Button type ="clear" title="click here"/>
+    </View>
+    <Button
+      title="Sign up"
+      type="clear"
+      buttonStyle={{
+        width:"50%",
+        backgroundColorst:"black"
+      }}
+      containerStyle={{
+        marginLeft:"25%",
+        width:"100%",
+        position:"absolute",
+        top:300
+      }}
+    />
+    </View>
     )
-  }
+}
 }
 const styles = StyleSheet.create({
   container:{
-    width:"100%"
+    width:"100%",
+    display:"flex"
+  },
+  apply:{
+    marginLeft:"25%",
+    marginTop:10
   }
 });
