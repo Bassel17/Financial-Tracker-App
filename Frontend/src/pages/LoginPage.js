@@ -98,6 +98,7 @@ export default class LoginPage extends React.Component{
           width:"50%",
           backgroundColorst:"black"
         }}
+      
         containerStyle={{
           display:"flex",
           width:"100%",
@@ -105,6 +106,7 @@ export default class LoginPage extends React.Component{
           alignItems:"center",
           alignSelf:"flex-end"
         }}
+        onPress={() => this.props.navigation.navigate('SignupPage')}
       />
     </View>
     )
