@@ -2,6 +2,8 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,Button,Text } from 'react-native-elements';
 import {StyleSheet, View} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 export default class LoginPage extends React.Component{
   constructor(props){
@@ -78,6 +80,7 @@ export default class LoginPage extends React.Component{
         display:'flex',
         alignContent:'center'
       }}
+      onPress={() => this.props.navigation.navigate('Empty')}
     />
     <View style={{
       display:'flex',
