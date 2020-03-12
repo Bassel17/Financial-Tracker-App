@@ -7,7 +7,7 @@ class Validation {
     return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.userEmail);
   }
   checkPassword(){
-    return this.userPassword.length >8;
+    return this.userPassword.length > 8;
   }
 }
 export default Validation;

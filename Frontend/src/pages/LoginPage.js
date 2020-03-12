@@ -4,6 +4,7 @@ import { Input,Button,Text } from 'react-native-elements';
 import {StyleSheet, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Validation from '../helpers/Validation';
 
 export default class LoginPage extends React.Component{
   constructor(props){
@@ -24,6 +25,21 @@ export default class LoginPage extends React.Component{
     this.setState({
       userPassword:event.target.value
     })
+  }
+
+  handleLogin = () =>{
+    const userCredentials = {
+      userEmail: this.state.userEmail,
+      userPassword: this.state.userPassword
+    }
+    const userValidation = new Validation(userCredentials);
+    console.log(userValidation.checkEmail());
+    console.log(userValidation.checkPassword());
+    if(userValidation.checkEmail() && userValidation.checkPassword()){
+      this.props.navigation.navigate('Empty');
+    }else{
+      console.log("error");
+    }
   }
 
   render(){
@@ -80,7 +96,7 @@ export default class LoginPage extends React.Component{
         display:'flex',
         alignContent:'center'
       }}
-      onPress={() => this.props.navigation.navigate('Empty')}
+      onPress={this.handleLogin}
     />
     <View style={{
       display:'flex',
