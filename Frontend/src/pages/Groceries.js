@@ -1,25 +1,28 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-//import { Input,Button,Text } from 'react-native-elements';
+import {StyleSheet, View} from 'react-native';
+import { Input,Button,Text } from 'react-native-elements';
 
 
 export default class Groceries extends React.Component{
 
-
-
-  handletitleChange = (event) => {
-    this.setState({
-      usertitle:event.target.value
-    });
-  }
-
   render(){
     return(
-    <view style = {{color:"red",width:"50%"}}>
-
-  
-    <textarea>hello</textarea>
-    </view>
+    <View style = {{color:"red",width:"50%"}}>
+      <Button
+      title="button"
+      buttonStyle={{
+        width:"50%",
+        backgroundColor:"black"
+      }}
+      containerStyle={{
+        marginLeft:"25%",
+        width:"100%",
+        display:'flex',
+        alignContent:'center'
+      }}
+    />
+    </View>
     );
   }
 }
