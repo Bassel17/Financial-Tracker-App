@@ -15,15 +15,15 @@ export default class LoginPage extends React.Component{
     }
   }
 
-  handleUserEmailChange = (event) => {
+  handleUserEmailChange = (text) => {
     this.setState({
-      userEmail:event.target.value
+      userEmail:text
     });
   }
 
-  handleUserPasswordChange = (event) => {
+  handleUserPasswordChange = (text) => {
     this.setState({
-      userPassword:event.target.value
+      userPassword:text
     })
   }
 
@@ -33,8 +33,6 @@ export default class LoginPage extends React.Component{
       userPassword: this.state.userPassword
     }
     const userValidation = new Validation(userCredentials);
-    console.log(userValidation.checkEmail());
-    console.log(userValidation.checkPassword());
     if(userValidation.checkEmail() && userValidation.checkPassword()){
       this.props.navigation.navigate('Empty');
     }else{
@@ -54,7 +52,7 @@ export default class LoginPage extends React.Component{
         <Input
           placeholder='Email'
           value={this.state.userEmail}
-          onChange={this.handleUserEmailChange}
+          onChangeText={this.handleUserEmailChange}
           inputContainerStyle={{
             margin:20
           }}
@@ -70,7 +68,7 @@ export default class LoginPage extends React.Component{
       <Input
           placeholder='Password'
           value={this.state.userPassword}
-          onChange={this.handleUserPasswordChange}
+          onChangeText={this.handleUserPasswordChange}
           inputContainerStyle={{
             margin:20
           }}
