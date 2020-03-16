@@ -2,8 +2,6 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,Button,Text } from 'react-native-elements';
 import {StyleSheet, View} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import Validation from '../helpers/Validation';
 
 export default class LoginPage extends React.Component{
@@ -109,8 +107,7 @@ export default class LoginPage extends React.Component{
         title="Sign up"
         type="clear"
         buttonStyle={{
-          width:"50%",
-          backgroundColorst:"black"
+          width:"50%"
         }}
       
         containerStyle={{
