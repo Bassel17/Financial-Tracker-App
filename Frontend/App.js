@@ -5,14 +5,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 //import Empty from './src/pages/emptyImage';
 //import SignupPage from './src/pages/SignupPage';
-import Groceries from './src/pages/Groceries';
-import ListExample from './src/pages/currencyPage';
+import BurgerPage from './src/pages/BurgerPage';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <ListExample/>
+    <BurgerPage/>
     //<Groceries/>
       // <NavigationContainer>
       //<Stack.Navigator>

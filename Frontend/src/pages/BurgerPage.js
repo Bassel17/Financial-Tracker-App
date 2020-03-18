@@ -13,7 +13,12 @@ export default class BurgerPage extends React.Component{
 
 <Avatar square icon={{ name: 'person'  }}
 AvatarStyle={{
- width:"100%"
+ width:100,
+ height:100
+}}
+containerStyle={{
+  width: 100,
+  height:100
 }}
  />
 
@@ -22,8 +27,8 @@ AvatarStyle={{
   title="Username"
   type="clear"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -33,8 +38,8 @@ AvatarStyle={{
   title="Overview"
   type="clear"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -45,8 +50,8 @@ AvatarStyle={{
   title="Report"
   type="clear"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"80%",
+    // paddingTop:"10%",
+    // marginRight:"80%",
    
   }}
 />
@@ -55,10 +60,10 @@ AvatarStyle={{
 <Button type ="clear" title=" Currency"
 
 buttonStyle={{
- marginRight:"100%",
- borderStyle:"dotted",
- width:"25%",
- height:"100%"
+//  marginRight:"100%",
+//  borderStyle:"dotted",
+//  width:"25%",
+//  height:"100%"
 
 }}
 />
@@ -86,8 +91,8 @@ buttonStyle={{
   title="Goals"
   type="clear"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -96,8 +101,8 @@ buttonStyle={{
   title="Setting"
   type="clear"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -106,8 +111,8 @@ buttonStyle={{
   title="Terms of use"
   type="clear"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -116,8 +121,8 @@ buttonStyle={{
   title="Support"
   type="clear"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
