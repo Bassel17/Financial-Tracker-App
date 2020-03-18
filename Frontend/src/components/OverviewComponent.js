@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input,Button,Text,Card,Overlay } from 'react-native-elements';
+import { Input,Button,Text,Card,Overlay, ThemeConsumer } from 'react-native-elements';
 import {StyleSheet, View} from 'react-native';
 
 export default class OverviewComponent extends React.Component {
@@ -24,7 +24,9 @@ export default class OverviewComponent extends React.Component {
                 }
             ],
             expensesModalVisiblity:false,
-            incomeModalVisiblity:false
+            incomeModalVisiblity:false,
+            expensesOverlayInput:"",
+            incomeOverlayInput:""
         }
     }
 
@@ -34,10 +36,40 @@ export default class OverviewComponent extends React.Component {
         });
     }
 
-    handleIncomeModal = (show)=>{
+    handleIncomeModal = ()=>{
         this.setState({
             incomeModalVisiblity: !this.state.incomeModalVisiblity
         });
+    }
+
+    handleExpensesOverlayInputChange = (text)=>{
+        this.setState({
+            expensesOverlayInput:text
+        })
+    }
+
+    handleIncomeOverlayInputChange = (text)=>{
+        this.setState({
+            incomeOverlayInput:text
+        });
+    }
+
+    handleSavingExpenseCategory = () =>{
+        this.setState({
+            expensesCards:[...this.state.expensesCards,{
+                category:this.state.expensesOverlayInput,
+                amount:0
+            }]
+        },()=>this.handleExpensesModal());
+    }
+
+    handleSavingIncomeSource = () =>{
+        this.setState({
+            incomeCards:[...this.state.incomeCards,{
+                category:this.state.incomeOverlayInput,
+                amount:0
+            }]
+        },()=>this.handleIncomeModal());
     }
 
     render(){
@@ -82,6 +114,8 @@ export default class OverviewComponent extends React.Component {
                 >
                     <Input 
                         label="CATEGORY"
+                        value={this.state.expensesOverlayInput}
+                        onChangeText={this.handleExpensesOverlayInputChange}
                     />
                     <View style={{
                         display:"flex",
@@ -95,6 +129,7 @@ export default class OverviewComponent extends React.Component {
                                 margin:10
                             }}
                             title="SAVE"
+                            onPress={this.handleSavingExpenseCategory}
                         />
                         <Button
                             containerStyle={{
@@ -149,6 +184,8 @@ export default class OverviewComponent extends React.Component {
                 >
                     <Input 
                         label="SOURCE"
+                        value={this.state.incomeOverlayInput}
+                        onChangeText={this.handleIncomeOverlayInputChange}
                     />
                     <View style={{
                         display:"flex",
@@ -162,6 +199,7 @@ export default class OverviewComponent extends React.Component {
                                 margin:10
                             }}
                             title="SAVE"
+                            onPress={this.handleSavingIncomeSource}
                         />
                         <Button
                             containerStyle={{

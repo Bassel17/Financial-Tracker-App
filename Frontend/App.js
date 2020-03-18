@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Empty from './src/pages/emptyImage';
 import SignupPage from './src/pages/SignupPage';
-import Groceries from './src/pages/Groceries';
 import OverviewPage from './src/pages/OverviewPage';
 
 const Stack = createStackNavigator();
