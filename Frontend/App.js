@@ -6,30 +6,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Empty from './src/pages/emptyImage';
 import SignupPage from './src/pages/SignupPage';
 import Groceries from './src/pages/Groceries';
-import ListExample from './src/pages/currencyPage';
+import OverviewPage from './src/pages/OverviewPage';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-<<<<<<< HEAD
       <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="OverviewPage" component={OverviewPage} />
        <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Empty" component={Empty} />
         <Stack.Screen name="SignupPage" component={SignupPage} />
       </Stack.Navigator>
    </NavigationContainer> 
-=======
-    <ListExample/>
-    //<Groceries/>
-      // <NavigationContainer>
-      //<Stack.Navigator>
-       // <Stack.Screen name="Login" component={LoginPage} />
-        //<Stack.Screen name="Empty" component={Empty} />
-        //<Stack.Screen name="SignupPage" component={SignupPage} />
-      //</Stack.Navigator>
-  //  </NavigationContainer> 
->>>>>>> master
   );
 }
