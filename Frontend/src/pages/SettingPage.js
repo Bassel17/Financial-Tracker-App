@@ -63,8 +63,7 @@ export default class SettingPage extends Component {
         value={this.state.username}
         onChange={this.handleUsernameChange}
         inputContainerStyle={{
-          marginBottom:"50%"
-        }}
+          marginBottom:60        }}
         secureTextEntry={false}
         rightIcon={
             <Icon
