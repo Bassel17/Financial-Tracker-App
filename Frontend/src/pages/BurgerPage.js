@@ -5,36 +5,49 @@ import { Avatar } from 'react-native-elements';
 import RNPickerSelect from 'react-native-picker-select';
 
 
+
+
 export default class BurgerPage extends React.Component{
+
+
+  _onPressbutton() {
+    alert(' Check your account statement , Categorize your expenses,Use a budgeting app,Explore other expense trackers, Identify room for change,Easily see where you stand,Know where your money is going,Chart your monthly progress,List These Monthly Expenses in Your Budget,List these monthly expenses,Now apply the 50/30/20 budget principles to your current spending,Balance of your expenses and income')
+
+  }
+
+  
+  _onPressbut(){
+    alert('Apple Card  , FreeWally ,Wallet ,MoneyStrands ,Money Lover ,Dollarbird,Honeyfi,Clarity Money ,Fudget,')
+  }
   render(){
     return(
       <View >
 
 
-<Avatar square icon={{ name: 'person'  }}
-AvatarStyle={{
- width:"100%"
-}}
- />
+<Avatar
+ size={250}
+  square
+  icon={{name: 'user', type: 'font-awesome'}} 
+  onPress={() => console.log("Works!")}
+  activeOpacity={2}
+  containerStyle={{ marginLeft: 55, marginTop: 30, blur:"dotted",borderStyle:"dashed",}}
+/>
 
         
-        <Button
-  title="Username"
-  type="clear"
-  buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
-   
-  }}
-/>
+   <Text style={{textAlign:"center"}}>Username</Text>
 
 
 <Button
+
   title="Overview"
-  type="clear"
+  type="outline"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    paddingTop:"5%",
+    paddingLeft:"3%",
+    backgroundColor:"grey",
+    borderColor:"white",
+     width:"40%",
+     alignSelf:"center"
    
   }}
 />
@@ -43,11 +56,14 @@ AvatarStyle={{
 
 <Button
   title="Report"
-  type="clear"
+  type="outline"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"80%",
-   
+    paddingTop:"5%",
+    paddingLeft:"8%",
+    backgroundColor:"grey",
+    borderColor:"white",
+    width:"40%",
+    alignSelf:"center"
   }}
 />
 
@@ -55,17 +71,22 @@ AvatarStyle={{
 <Button type ="clear" title=" Currency"
 
 buttonStyle={{
- marginRight:"100%",
+  paddingLeft:"8%",
  borderStyle:"dotted",
- width:"25%",
- height:"100%"
+ paddingTop:"5%",
+ backgroundColor:"grey",
+ borderColor:"white",
+ width:"40%",
+ alignSelf:"center"
 
 }}
 />
    
         <RNPickerSelect
+        
                     onValueChange={(value) => console.log(value)}
                     items={[
+                      
                       { label: 'LBP', value: 'LBP' },
                       { label: 'USD', value: 'USD' },
                       { label: 'EUR', value: 'EUR' },
@@ -84,40 +105,61 @@ buttonStyle={{
 
 <Button
   title="Goals"
-  type="clear"
+  type="outline"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    paddingTop:"1%",
+    paddingLeft:"8%",
+    backgroundColor:"grey",
+    borderColor:"white",
+    width:"40%",
+    alignSelf:"center"
    
   }}
 />
 
 <Button
+  
   title="Setting"
-  type="clear"
+  type="outline"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    paddingTop:"3%",
+    paddingLeft:"8%",
+    width:"40%",
+    backgroundColor:"grey",
+    borderColor:"white",
+    alignSelf:"center"
    
   }}
 />
 
 <Button
+  onPress={this._onPressbutton}
   title="Terms of use"
-  type="clear"
+  type="outline"
+
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    paddingTop:"4%",
+    paddingLeft:"8%",
+    backgroundColor:"grey",
+    borderColor:"white",
+    color:"white",
+    width:"40%",
+    alignSelf:"center"
    
   }}
 />
 
 <Button
+  onPress={this._onPressbut}
   title="Support"
-  type="clear"
+  type="outline"
   buttonStyle={{
-    paddingTop:"10%",
-    marginRight:"75%",
+    paddingTop:"2%",
+    paddingLeft:"8%",
+    backgroundColor:"grey",
+    borderColor:"white",
+    width:"40%",
+    alignSelf:"center"
    
   }}
 />

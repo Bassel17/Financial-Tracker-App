@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,Header } from 'react-native-elements';
-//import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+//import { Container, Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
 
-const Stack = createStackNavigator();
 
 
 export default class SettingPage extends Component {
+
+  _onPresssave() {
+    alert('Are you sure you want save this card?')
+  }
+  _onPressButton() {
+    alert('Are you sure you want discard this card?')
+  } 
+
+
   constructor(props){
     super(props);
     this.state={
@@ -49,12 +56,6 @@ export default class SettingPage extends Component {
       <View style={styles.container}>
 
 
-<Header
-  placement=""
-  leftComponent={{ icon: 'bars', color: 'white',backgroundcolor:'black' ,paddingTop:'100'}}
-  centerComponent={{ text: 'Setting', style: { color: 'black'} }}
-  rightComponent={{ icon: 'bars', color: 'grey' ,backgroundcolor:'black',paddingTop:'100'}}
-/>
         
 
         <Input
@@ -62,7 +63,7 @@ export default class SettingPage extends Component {
         value={this.state.username}
         onChange={this.handleUsernameChange}
         inputContainerStyle={{
-          marginBottom:50
+          marginBottom:"50%"
         }}
         secureTextEntry={false}
         rightIcon={
@@ -127,18 +128,17 @@ export default class SettingPage extends Component {
 
         
         <View style={styles.alternativeLayoutButtonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="save"
-            alternativeLayoutButtonContainer={{
-              backgroundcolor:"black"
-            }}
-            
-          />
+      
           <Button
             onPress={this._onPressButton}
             title="discard"
-            color="#841584"
+            color="black"
+          />
+          <Button
+            onPress={this._onPresssave}
+            title="save"
+            //color="#841584"
+            color="black"
           />
         </View>
       </View>
@@ -150,12 +150,15 @@ const styles = StyleSheet.create({
   container: {
    flex: 1,
    justifyContent: 'center',
+   color:"black",
+   backgroundColor:"grey"
   },
   buttonContainer: {
     margin: 20
   },
   alternativeLayoutButtonContainer: {
-    margin: 20,
+    marginRight: "50%",
+    marginLeft: "10%",
     flexDirection: 'row',
     justifyContent: 'space-between',
     

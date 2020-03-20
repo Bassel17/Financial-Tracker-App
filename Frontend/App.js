@@ -5,19 +5,28 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 //import Empty from './src/pages/emptyImage';
 //import SignupPage from './src/pages/SignupPage';
-import Groceries from './src/pages/Groceries';
+//import Groceries from './src/pages/Groceries';
+//import CurrencyPage from './src/pages/CurrencyPage';
+
+//import SettingPage from './src/pages/SettingPage';
+import BurgerPage from './src/pages/BurgerPage';
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <Groceries/>
+   
+    //<SignupPage/>
+    <BurgerPage/>
+    //<SettingPage/>
+   // <Groceries/>
       // <NavigationContainer>
       //<Stack.Navigator>
        // <Stack.Screen name="Login" component={LoginPage} />
         //<Stack.Screen name="Empty" component={Empty} />
         //<Stack.Screen name="SignupPage" component={SignupPage} />
-      //</Stack.Navigator>
+    //  </Stack.Navigator>
   //  </NavigationContainer> 
   );
 }
