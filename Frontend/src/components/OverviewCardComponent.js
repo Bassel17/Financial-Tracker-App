@@ -1,17 +1,29 @@
 import React from 'react';
-import { Input,Button,Text,Card,Overlay, ThemeConsumer } from 'react-native-elements';
-import {View} from 'react-native';
+import {Text,Card} from 'react-native-elements';
+import {View,TouchableOpacity} from 'react-native';
 
 export default class OverviewCardComponent extends React.Component{
     constructor(props){
         super(props);
     }
 
+    showEditOverlay = ()=>{
+        this.props.showEditDeleteCard();
+    }
+
     render(){
         return(
-            <Card containerStyle={{
+            <TouchableOpacity underlayColor="white" style={{
+                display:"flex",
+                flexDirection:"row",
+                justifyContent:"center"
+            }}
+            onLongPress={this.showEditOverlay}
+            >
+                <Card containerStyle={{
                 width:"95%"
-            }} key={this.props.key}>
+            }} key={this.props.key}
+            >
                 <View style={{
                     display:"flex",
                     flexDirection:"row",
@@ -23,6 +35,7 @@ export default class OverviewCardComponent extends React.Component{
                     </View>
                 </View>
             </Card>
+            </TouchableOpacity>
         )
     }
 

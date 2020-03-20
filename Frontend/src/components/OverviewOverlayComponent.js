@@ -25,6 +25,9 @@ export default class OverviewOverlayComponent extends React.Component{
 
     handleSave = () =>{
         this.props.onPressSave(this.state.overlayInput);
+        this.setState({
+            overlayInput:""
+        });
     }
 
     handleDiscard = () => {

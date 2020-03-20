@@ -3,6 +3,7 @@ import { Input,Button,Text,Card,Overlay, ThemeConsumer } from 'react-native-elem
 import {View} from 'react-native';
 import OverviewCardComponent from './OverviewCardComponent';
 import OverviewOverlayComponent from './OverviewOverlayComponent';
+import OverviewCardEdit from './OverviewCardEdit';
 
 export default class OverviewComponent extends React.Component {
     constructor(props){
@@ -25,7 +26,9 @@ export default class OverviewComponent extends React.Component {
                 }
             ],
             expensesModalVisiblity:false,
-            incomeModalVisiblity:false
+            incomeModalVisiblity:false,
+            editExpensesCardVisiblity:false,
+            editIncomeCardVisiblity:false
         }
     }
 
@@ -59,12 +62,24 @@ export default class OverviewComponent extends React.Component {
         },()=>this.handleIncomeModal());
     }
 
+    handleEditExpensesCardVisiblity = ()=>{
+        this.setState({
+            editExpensesCardVisiblity:!this.state.editExpensesCardVisiblity
+        });
+    }
+
+    handleEditIncomeCardVisiblity = ()=>{
+        this.setState({
+            editIncomeCardVisiblity:!this.state.editIncomeCardVisiblity
+        });
+    }
+
     render(){
         if(this.props.index === 0){
             return (
                 <View>
                 {this.state.expensesCards.map((card,index)=>
-                    <OverviewCardComponent category = {card.category} amount = {card.amount} key={index}/>  
+                    <OverviewCardComponent category = {card.category} amount = {card.amount} key={index} showEditDeleteCard={this.handleEditExpensesCardVisiblity}/>  
                 )}
                 <Button
                     title="+"
@@ -77,13 +92,14 @@ export default class OverviewComponent extends React.Component {
                 />
 
                 <OverviewOverlayComponent visiblity = {this.state.expensesModalVisiblity} onPressSave = {this.handleSavingExpenseCategory} onPressDiscard = {this.handleExpensesModal}/>
+                <OverviewCardEdit visiblity={this.state.editExpensesCardVisiblity} showEditDeleteCard={this.handleEditExpensesCardVisiblity}/>
                 </View>
             );
         }else{
             return(
             <View>
                 {this.state.incomeCards.map((card,index)=>
-                    <OverviewCardComponent category = {card.category} amount = {card.amount} key={index}/>                    
+                    <OverviewCardComponent category = {card.category} amount = {card.amount} key={index} showEditDeleteCard={this.handleEditIncomeCardVisiblity}/>                    
                 )}
 
             <Button
@@ -97,6 +113,7 @@ export default class OverviewComponent extends React.Component {
             />
                 
                 <OverviewOverlayComponent visiblity = {this.state.incomeModalVisiblity} onPressSave = {this.handleSavingIncomeCategory} onPressDiscard={this.handleIncomeModal}/>
+                <OverviewCardEdit visiblity={this.state.editIncomeCardVisiblity} showEditDeleteCard={this.handleEditIncomeCardVisiblity}/>
             </View>
             )
         }
