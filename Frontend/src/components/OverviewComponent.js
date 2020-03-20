@@ -1,7 +1,8 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,Button,Text,Card,Overlay, ThemeConsumer } from 'react-native-elements';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
+import OverviewCardComponent from './OverviewCardComponent';
+import OverviewOverlayComponent from './OverviewOverlayComponent';
 
 export default class OverviewComponent extends React.Component {
     constructor(props){
@@ -24,9 +25,7 @@ export default class OverviewComponent extends React.Component {
                 }
             ],
             expensesModalVisiblity:false,
-            incomeModalVisiblity:false,
-            expensesOverlayInput:"",
-            incomeOverlayInput:""
+            incomeModalVisiblity:false
         }
     }
 
@@ -42,31 +41,19 @@ export default class OverviewComponent extends React.Component {
         });
     }
 
-    handleExpensesOverlayInputChange = (text)=>{
-        this.setState({
-            expensesOverlayInput:text
-        })
-    }
-
-    handleIncomeOverlayInputChange = (text)=>{
-        this.setState({
-            incomeOverlayInput:text
-        });
-    }
-
-    handleSavingExpenseCategory = () =>{
+    handleSavingExpenseCategory = (category) =>{
         this.setState({
             expensesCards:[...this.state.expensesCards,{
-                category:this.state.expensesOverlayInput,
+                category:category,
                 amount:0
             }]
         },()=>this.handleExpensesModal());
     }
 
-    handleSavingIncomeSource = () =>{
+    handleSavingIncomeCategory = (category) =>{
         this.setState({
             incomeCards:[...this.state.incomeCards,{
-                category:this.state.incomeOverlayInput,
+                category:category,
                 amount:0
             }]
         },()=>this.handleIncomeModal());
@@ -76,27 +63,9 @@ export default class OverviewComponent extends React.Component {
         if(this.props.index === 0){
             return (
                 <View>
-                {
-                this.state.expensesCards.map((card,index)=>{
-                    return(
-                        <Card containerStyle={{
-                            width:"95%"
-                        }} key={index}>
-                            <View style={{
-                                display:"flex",
-                                flexDirection:"row",
-                                alignItems:"center",
-                            }}>
-                                <Text style={{width:"50%",fontSize:28}}>{card.category}</Text>
-                                <View style={{width:"50%",display:"flex",flexDirection:"row",justifyContent:"flex-end"}}>
-                                    <Text style={{fontSize:28}}>{card.amount} $</Text>
-                                </View>
-                            </View>
-                        </Card>
-                    )
-                    
-                })
-                }
+                {this.state.expensesCards.map((card,index)=>
+                    <OverviewCardComponent category = {card.category} amount = {card.amount} key={index}/>  
+                )}
                 <Button
                     title="+"
                     containerStyle={{marginTop:"5%",width:"100%",display:"flex",flexDirection:"row",justifyContent:"center"}}
@@ -107,66 +76,16 @@ export default class OverviewComponent extends React.Component {
                     onPress={this.handleExpensesModal}
                 />
 
-                <Overlay 
-                    isVisible={this.state.expensesModalVisiblity}
-                    width="95%"
-                    height={150}
-                >
-                    <Input 
-                        label="CATEGORY"
-                        value={this.state.expensesOverlayInput}
-                        onChangeText={this.handleExpensesOverlayInputChange}
-                    />
-                    <View style={{
-                        display:"flex",
-                        flexDirection:"row",
-                        justifyContent:"center",
-                        marginTop:10
-                    }}>
-                        <Button
-                            containerStyle={{
-                                width:"45%",
-                                margin:10
-                            }}
-                            title="SAVE"
-                            onPress={this.handleSavingExpenseCategory}
-                        />
-                        <Button
-                            containerStyle={{
-                                width:"45%",
-                                margin: 10
-                            }}
-                            title="DISCARD"
-                            onPress={this.handleExpensesModal}
-                        />
-                    </View>
-                </Overlay>
+                <OverviewOverlayComponent visiblity = {this.state.expensesModalVisiblity} onPressSave = {this.handleSavingExpenseCategory} onPressDiscard = {this.handleExpensesModal}/>
                 </View>
             );
         }else{
             return(
-                <View>
-                {
-                this.state.incomeCards.map((card,index)=>{
-                    return(
-                        <Card containerStyle={{
-                            width:"95%"
-                        }} key={index}>
-                            <View style={{
-                                display:"flex",
-                                flexDirection:"row",
-                                alignItems:"center",
-                            }}>
-                                <Text style={{width:"50%",fontSize:28}}>{card.category}</Text>
-                                <View style={{width:"50%",display:"flex",flexDirection:"row",justifyContent:"flex-end"}}>
-                                    <Text style={{fontSize:28}}>{card.amount} $</Text>
-                                </View>
-                            </View>
-                        </Card>
-                    )
-                    
-                })
-            }
+            <View>
+                {this.state.incomeCards.map((card,index)=>
+                    <OverviewCardComponent category = {card.category} amount = {card.amount} key={index}/>                    
+                )}
+
             <Button
                 title="+"
                 containerStyle={{marginTop:"5%",width:"100%",display:"flex",flexDirection:"row",justifyContent:"center"}}
@@ -176,41 +95,8 @@ export default class OverviewComponent extends React.Component {
                 }}
                 onPress={this.handleIncomeModal}
             />
-
-                <Overlay 
-                    isVisible={this.state.incomeModalVisiblity}
-                    width="95%"
-                    height={150}
-                >
-                    <Input 
-                        label="SOURCE"
-                        value={this.state.incomeOverlayInput}
-                        onChangeText={this.handleIncomeOverlayInputChange}
-                    />
-                    <View style={{
-                        display:"flex",
-                        flexDirection:"row",
-                        justifyContent:"center",
-                        marginTop:10
-                    }}>
-                        <Button
-                            containerStyle={{
-                                width:"45%",
-                                margin:10
-                            }}
-                            title="SAVE"
-                            onPress={this.handleSavingIncomeSource}
-                        />
-                        <Button
-                            containerStyle={{
-                                width:"45%",
-                                margin: 10
-                            }}
-                            title="DISCARD"
-                            onPress={this.handleIncomeModal}
-                        />
-                    </View>
-                </Overlay>
+                
+                <OverviewOverlayComponent visiblity = {this.state.incomeModalVisiblity} onPressSave = {this.handleSavingIncomeCategory} onPressDiscard={this.handleIncomeModal}/>
             </View>
             )
         }
