@@ -22,7 +22,7 @@ export default class OverviewCardComponent extends React.Component{
             >
                 <Card containerStyle={{
                 width:"95%"
-            }} key={this.props.key}
+            }}
             >
                 <View style={{
                     display:"flex",

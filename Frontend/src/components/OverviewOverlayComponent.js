@@ -44,6 +44,7 @@ export default class OverviewOverlayComponent extends React.Component{
                 width="95%"
                 height={150}
             >
+                <View>
                 <Input 
                     label="CATEGORY"
                     value={this.state.overlayInput}
@@ -71,6 +72,7 @@ export default class OverviewOverlayComponent extends React.Component{
                         title="DISCARD"
                         onPress={this.handleDiscard}
                     />
+                </View>
                 </View>
             </Overlay>
         )

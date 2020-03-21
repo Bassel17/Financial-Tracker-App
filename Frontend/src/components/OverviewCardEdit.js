@@ -49,6 +49,7 @@ export default class OverviewCardEdit extends React.Component{
                     width="95%"
                     height={150}
                 >
+                    <View>
                     <Input 
                         label="CATEGORY"
                         value={this.state.overlayInput}
@@ -76,6 +77,7 @@ export default class OverviewCardEdit extends React.Component{
                             title="DISCARD"
                             onPress={this.handleDiscardEdit}
                         />
+                    </View>
                     </View>
                 </Overlay>
             )
