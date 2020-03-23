@@ -1,8 +1,15 @@
 Arguments: 
+<<<<<<< HEAD
+  /usr/bin/node /usr/bin/yarn add react-modal-native-select-list
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/opt/android-sdk/tools/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+=======
   /usr/bin/node /usr/bin/yarn add @expo/vector-icons/Fontisto
 
 PATH: 
   /home/bassel/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/platform-tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+>>>>>>> cf52f43d2495dea4d680de425e8149d141837e11
 
 Yarn version: 
   1.22.4
@@ -14,6 +21,17 @@ Platform:
   linux x64
 
 Trace: 
+<<<<<<< HEAD
+  Error: https://registry.yarnpkg.com/react-modal-native-select-list: Not found
+      at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66987:18)
+      at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140748:22)
+      at Request.emit (events.js:316:20)
+      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141720:10)
+      at Request.emit (events.js:316:20)
+      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141642:12)
+      at Object.onceWrapper (events.js:422:28)
+      at IncomingMessage.emit (events.js:328:22)
+=======
   Error: https://registry.yarnpkg.com/@expo%2fvector-icons/Fontisto: Request "https://registry.yarnpkg.com/@expo%2fvector-icons/Fontisto" returned a 405
       at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66996:18)
       at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140748:22)
@@ -23,6 +41,7 @@ Trace:
       at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141642:12)
       at Object.onceWrapper (events.js:421:28)
       at IncomingMessage.emit (events.js:327:22)
+>>>>>>> cf52f43d2495dea4d680de425e8149d141837e11
       at endReadableNT (_stream_readable.js:1201:12)
       at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
@@ -42,7 +61,10 @@ npm manifest:
       "@react-navigation/native": "^5.0.9",
       "@react-navigation/stack": "^5.1.1",
       "expo": "~36.0.0",
+<<<<<<< HEAD
+=======
       "expo-font": "~8.0.0",
+>>>>>>> cf52f43d2495dea4d680de425e8149d141837e11
       "native-base": "^2.13.12",
       "react": "~16.9.0",
       "react-dom": "~16.9.0",
@@ -4577,6 +4599,8 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
     integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
   
+<<<<<<< HEAD
+=======
   react-native-keyboard-aware-scroll-view@0.9.1:
     version "0.9.1"
     resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.9.1.tgz#9e54b565a5f19b30bed12221d48921781f7630af"
@@ -4585,6 +4609,7 @@ Lockfile:
       prop-types "^15.6.2"
       react-native-iphone-x-helper "^1.0.3"
   
+>>>>>>> cf52f43d2495dea4d680de425e8149d141837e11
   react-native-picker-select@^6.6.0:
     version "6.6.0"
     resolved "https://registry.yarnpkg.com/react-native-picker-select/-/react-native-picker-select-6.6.0.tgz#a424e2a68dae228c492684a41745c0194cee01f0"

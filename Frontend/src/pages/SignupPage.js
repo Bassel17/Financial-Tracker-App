@@ -62,7 +62,10 @@ export default class SignupPage extends React.Component{
         value={this.state.userEmail}
         onChangeText={this.handleUserEmailChange}
         inputContainerStyle={{
-          margin:20
+          margin:20,
+          paddingTop:"30%",
+          paddingBottom:"10%"
+          
         }}
         rightIcon={
             <Icon
@@ -121,8 +124,8 @@ export default class SignupPage extends React.Component{
             />
           }
       />
-      <View style = {{width:"50%",paddingLeft:50 , paddingBottom:50}}>
-      <RNPickerSelect
+      <View style = {{width:"50%",paddingLeft:70 , paddingBottom:40}}>
+<RNPickerSelect
              placeholder = {{}}
 
             onValueChange={(value,index) => this.handleCurrencyChange(value,index)}
