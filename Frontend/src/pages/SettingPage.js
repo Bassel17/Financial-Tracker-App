@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,Header } from 'react-native-elements';
-//import { Container, Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
+//import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 
@@ -50,12 +50,29 @@ export default class SettingPage extends Component {
     });
   }
 
+
+
+
+
   render() {
     return (
       
       <View style={styles.container}>
 
-
+<Header
+              
+              statusBarProps={{ barStyle: 'dark-content' }}
+               barStyle="dark-content"  
+               leftComponent={{ icon: 'menu', color: 'black' }}
+               centerComponent={{ text: 'SETTING', style: { color: 'black' } }}
+               rightComponent={{ icon: 'home', color: 'black' }}
+               containerStyle={{
+                backgroundColor: 'grey',
+                justifyContent: 'space-around',
+                paddingTop:"20%",
+                paddingBottom:"10%"
+              }}
+              />
         
 
         <Input
@@ -63,14 +80,17 @@ export default class SettingPage extends Component {
         value={this.state.username}
         onChange={this.handleUsernameChange}
         inputContainerStyle={{
-          marginBottom:60        }}
+          marginBottom:60,
+          paddingTop:30
+             }}
         secureTextEntry={false}
-        rightIcon={
-            <Icon
-            size={24}
+        leftIcon={
+          <Icon
+            name='user'
+            size={15}
             color='black'
-            />
-          }
+          />
+        }
       />
 
 
@@ -79,16 +99,21 @@ export default class SettingPage extends Component {
         value={this.state.userEmail}
         onChange={this.handleUserEmailChange}
         inputContainerStyle={{
-          marginBottom:60
+          marginBottom:60,
+          color:"black"
         }}
         secureTextEntry={false}
-        rightIcon={
-            <Icon
-            size={24}
+        leftIcon={
+          <Icon
+            name='email'
+            size={20}
             color='black'
-            />
-          }
+          />
+        }
       />
+
+
+      
 
 
 <Input
@@ -99,12 +124,13 @@ export default class SettingPage extends Component {
           marginBottom:60
         }}
         secureTextEntry={true}
-        rightIcon={
-            <Icon
-            size={24}
+        leftIcon={
+          <Icon
+            name='lock'
+            size={20}
             color='black'
-            />
-          }
+          />
+        }
       />
 
 <Input
@@ -115,12 +141,13 @@ export default class SettingPage extends Component {
           marginBottom:60
         }}
         secureTextEntry={true}
-        rightIcon={
-            <Icon
-            size={24}
+        leftIcon={
+          <Icon
+            name='lock'
+            size={20}
             color='black'
-            />
-          }
+          />
+        }
       />
 
 
@@ -129,14 +156,16 @@ export default class SettingPage extends Component {
         <View style={styles.alternativeLayoutButtonContainer}>
       
           <Button
+            onPress={() => console.log("Works!")}
             onPress={this._onPressButton}
             title="discard"
             color="black"
           />
           <Button
+           onPress={() => console.log("Works!")}
             onPress={this._onPresssave}
             title="save"
-            //color="#841584"
+            
             color="black"
           />
         </View>
@@ -150,7 +179,7 @@ const styles = StyleSheet.create({
    flex: 1,
    justifyContent: 'center',
    color:"black",
-   backgroundColor:"grey"
+   //backgroundColor:"grey"
   },
   buttonContainer: {
     margin: 20
