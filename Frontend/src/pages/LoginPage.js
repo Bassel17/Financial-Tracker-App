@@ -2,8 +2,6 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,Button,Text } from 'react-native-elements';
 import {StyleSheet, View} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import Validation from '../helpers/Validation';
 
 export default class LoginPage extends React.Component{
@@ -15,15 +13,15 @@ export default class LoginPage extends React.Component{
     }
   }
 
-  handleUserEmailChange = (event) => {
+  handleUserEmailChange = (text) => {
     this.setState({
-      userEmail:event.target.value
+      userEmail:text
     });
   }
 
-  handleUserPasswordChange = (event) => {
+  handleUserPasswordChange = (text) => {
     this.setState({
-      userPassword:event.target.value
+      userPassword:text
     })
   }
 
@@ -33,8 +31,6 @@ export default class LoginPage extends React.Component{
       userPassword: this.state.userPassword
     }
     const userValidation = new Validation(userCredentials);
-    console.log(userValidation.checkEmail());
-    console.log(userValidation.checkPassword());
     if(userValidation.checkEmail() && userValidation.checkPassword()){
       this.props.navigation.navigate('Empty');
     }else{
@@ -54,7 +50,7 @@ export default class LoginPage extends React.Component{
         <Input
           placeholder='Email'
           value={this.state.userEmail}
-          onChange={this.handleUserEmailChange}
+          onChangeText={this.handleUserEmailChange}
           inputContainerStyle={{
             margin:20
           }}
@@ -70,7 +66,7 @@ export default class LoginPage extends React.Component{
       <Input
           placeholder='Password'
           value={this.state.userPassword}
-          onChange={this.handleUserPasswordChange}
+          onChangeText={this.handleUserPasswordChange}
           inputContainerStyle={{
             margin:20
           }}
@@ -111,8 +107,7 @@ export default class LoginPage extends React.Component{
         title="Sign up"
         type="clear"
         buttonStyle={{
-          width:"50%",
-          backgroundColorst:"black"
+          width:"50%"
         }}
       
         containerStyle={{

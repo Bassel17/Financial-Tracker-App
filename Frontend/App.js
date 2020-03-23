@@ -12,6 +12,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import BurgerPage from './src/pages/BurgerPage';
 import SwitchPage from './src/pages/SwitchPage';
 
+//import Empty from './src/pages/emptyImage';
+//import SignupPage from './src/pages/SignupPage';
+//import OverviewPage from './src/pages/OverviewPage';
 
 const Stack = createStackNavigator();
 
@@ -29,5 +32,13 @@ export default function App() {
         //<Stack.Screen name="SignupPage" component={SignupPage} />
     //  </Stack.Navigator>
   //  </NavigationContainer> 
+      //<NavigationContainer>
+      //<Stack.Navigator>
+      //<Stack.Screen name="OverviewPage" component={OverviewPage} />
+      // <Stack.Screen name="Login" component={LoginPage} />
+       // <Stack.Screen name="Empty" component={Empty} />
+        //<Stack.Screen name="SignupPage" component={SignupPage} />
+      //</Stack.Navigator>
+  // </NavigationContainer> 
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input,Button,Text } from 'react-native-elements';
-import {StyleSheet, View} from 'react-native';
+import {Input,Button} from 'react-native-elements';
+import {View} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 
 
@@ -14,34 +14,40 @@ export default class SignupPage extends React.Component{
       username:"",
       userPassword:"",
       userConfirmPassword:"",
-      userCurrency:''
+      userCurrency:{
+        code:'LBP',
+        index:0
+      }
     }
     
    
   }
-  handleUserEmailChange = (event) => {
+  handleUserEmailChange = (text) => {
     this.setState({
-      userEmail:event.target.value
+      userEmail:text
     });
   }
-  handleUsernameChange = (event) => {
+  handleUsernameChange = (text) => {
     this.setState({
-      username:event.target.value
+      username:text
     })
   }
-  handleUserPasswordChange = (event) => {
+  handleUserPasswordChange = (text) => {
     this.setState({
-      userPassword:event.target.value
+      userPassword:text
     })
   }
 
-  handleUserConfirmPasswordChange = (event) => {
+  handleUserConfirmPasswordChange = (text) => {
     this.setState({
-      userConfirmPassword:event.target.value
+      userConfirmPassword:text
     })
   }
   handleCurrencyChange = (selection, row) => {
-    this.setState({userCurrency: data[selection][row]})
+    this.setState({userCurrency: {
+      code:selection,
+      index:row
+    }})
   }
  
 
@@ -54,7 +60,7 @@ export default class SignupPage extends React.Component{
       <Input
         placeholder='Email'
         value={this.state.userEmail}
-        onChange={this.handleUserEmailChange}
+        onChangeText={this.handleUserEmailChange}
         inputContainerStyle={{
           margin:20,
           paddingTop:"30%",
@@ -73,7 +79,7 @@ export default class SignupPage extends React.Component{
     <Input
         placeholder='name'
         value={this.state.username}
-        onChange={this.handleUsernameChange}
+        onChangeText={this.handleUsernameChange}
         inputContainerStyle={{
           margin:20
         }}
@@ -89,7 +95,7 @@ export default class SignupPage extends React.Component{
       <Input
         placeholder='Password'
         value={this.state.userPassword}
-        onChange={this.handleUserPasswordChange}
+        onChangeText={this.handleUserPasswordChange}
         inputContainerStyle={{
           margin:20
         }}
@@ -105,7 +111,7 @@ export default class SignupPage extends React.Component{
       <Input
         placeholder='Confirm Password'
         value={this.state.userConfirmPassword}
-        onChange={this.handleUserConfirmPasswordChange}
+        onChangeText={this.handleUserConfirmPasswordChange}
         inputContainerStyle={{
           margin:20
         }}
@@ -122,7 +128,7 @@ export default class SignupPage extends React.Component{
 <RNPickerSelect
              placeholder = {{}}
 
-            onValueChange={(value) => console.log(value)}
+            onValueChange={(value,index) => this.handleCurrencyChange(value,index)}
             items={[
                 { label: 'LBP', value: 'LBP' },
                 { label: 'USD', value: 'USD' },
@@ -135,8 +141,7 @@ export default class SignupPage extends React.Component{
         title="Sign up"
         type="clear"
         buttonStyle={{
-          width:"50%",
-          backgroundColorst:"black"
+          width:"50%"
         }}
         containerStyle={{
           display:"flex",

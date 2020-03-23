@@ -35,6 +35,27 @@ export default class BurgerPage extends React.Component{
 
         
    <Text style={{textAlign:"center"}}>Username</Text>
+<Avatar square icon={{ name: 'person'  }}
+AvatarStyle={{
+ width:100,
+ height:100
+}}
+containerStyle={{
+  width: 100,
+  height:100
+}}
+ />
+
+        
+        <Button
+  title="Username"
+  type="clear"
+  buttonStyle={{
+    // paddingTop:"10%",
+    // marginRight:"75%",
+   
+  }}
+/>
 
 
 <Button
@@ -50,6 +71,8 @@ export default class BurgerPage extends React.Component{
      width:"40%",
      height:"",
      alignSelf:"center",
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -67,6 +90,9 @@ export default class BurgerPage extends React.Component{
     borderColor:"white",
     width:"40%",
     alignSelf:"center"
+    // paddingTop:"10%",
+    // marginRight:"80%",
+   
   }}
 />
 
@@ -81,6 +107,10 @@ buttonStyle={{
  borderColor:"white",
  width:"40%",
  alignSelf:"center"
+//  marginRight:"100%",
+//  borderStyle:"dotted",
+//  width:"25%",
+//  height:"100%"
 
 }}
 />
@@ -121,6 +151,8 @@ buttonStyle={{
     borderColor:"white",
     width:"40%",
     alignSelf:"center"
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -136,6 +168,8 @@ buttonStyle={{
     backgroundColor:"grey",
     borderColor:"white",
     alignSelf:"center"
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -154,6 +188,8 @@ buttonStyle={{
     color:"white",
     width:"40%",
     alignSelf:"center"
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
@@ -170,6 +206,8 @@ buttonStyle={{
     borderColor:"white",
     width:"40%",
     alignSelf:"center"
+    // paddingTop:"10%",
+    // marginRight:"75%",
    
   }}
 />
