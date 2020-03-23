@@ -34,8 +34,9 @@ export default class SwitchPage extends React.Component {
               <Header
               
               statusBarProps={{ barStyle: 'dark-content' }}
-               barStyle="dark-content"  
+               barStyle="dark-content" 
                leftComponent={{ icon: 'menu', color: 'black' }}
+              
                centerComponent={{ text: 'MONTHLY', style: { color: 'black' } }}
                rightComponent={{ icon: 'home', color: 'black' }}
                containerStyle={{

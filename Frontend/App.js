@@ -7,18 +7,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import SignupPage from './src/pages/SignupPage';
 //import Groceries from './src/pages/Groceries';
 //import CurrencyPage from './src/pages/CurrencyPage';
-
+//import SwitchPage from './src/pages/SwitchPage';
 //import SettingPage from './src/pages/SettingPage';
-import BurgerPage from './src/pages/BurgerPage';
+//import BurgerPage from './src/pages/BurgerPage';
+import SwitchPage from './src/pages/SwitchPage';
 
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-   
+   <SwitchPage/>
     //<SignupPage/>
-    <BurgerPage/>
+    //<BurgerPage/>
     //<SettingPage/>
    // <Groceries/>
       // <NavigationContainer>
