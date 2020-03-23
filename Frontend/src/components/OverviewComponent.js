@@ -11,10 +11,12 @@ export default class OverviewComponent extends React.Component {
         this.state={
             expensesCards:[
                 {
+                    id:"1",
                     category:"Groceries",
                     amount:125
                 },
                 {
+                    id:"2",
                     category:"Transport",
                     amount:500
                 }
