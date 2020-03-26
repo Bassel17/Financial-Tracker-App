@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+header('Content-type: application/json');
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/me', 'SendDataController@sendJSON');
+
 Route::get('/', function () {
-    return view('welcome');
+    return 'hello am web';
 });
