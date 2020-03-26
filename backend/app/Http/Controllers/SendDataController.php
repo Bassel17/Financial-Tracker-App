@@ -4,11 +4,19 @@ use App\Http\Controllers\Controller;
 
 class SendDataController extends Controller {
 
-    public function sendJSON()
+    public function messageToBassel()
     {
         return response()->json([
             'name' => 'Bassel',
-            'status' => 200
+            'message' => 'you are cool'
+        ]);
+    }
+
+    public function messageToRania()
+    {
+        return response()->json([
+            'name' => 'Rania',
+            'message' => 'you can do this, I trust you and I know you can'
         ]);
     }
 

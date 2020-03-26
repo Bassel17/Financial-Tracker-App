@@ -14,8 +14,10 @@ header('Content-type: application/json');
 |
 */
 
-Route::get('/me', 'SendDataController@sendJSON');
+Route::get('/bassel', 'SendDataController@messageToBassel');
 
-Route::get('/', function () {
-    return 'hello am web';
+Route::get('/rania', 'SendDataController@messageToRania');
+
+Route::get('/', function(){
+    return view('welcome');
 });
