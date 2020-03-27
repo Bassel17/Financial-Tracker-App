@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
@@ -12,10 +12,10 @@ class SendDataController extends Controller {
         ]);
     }
 
-    public function messageToRania()
+    public function messageTosamar()
     {
         return response()->json([
-            'name' => 'Rania',
+            'name' => 'samar',
             'message' => 'you can do this, I trust you and I know you can'
         ]);
     }

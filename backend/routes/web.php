@@ -14,11 +14,11 @@ header('Content-type: application/json');
 |
 */
 
-Route::get('/rania', 'SendDataController@messageTorania');
+Route::get('/samar', 'SendDataController@messageTosamar');
 //Route::get('/rania', 'SendDataController@messageToRania');
  Route::get('/samar',function(){
     return response()->json([
-              'name' => 'rania',
+              'name' => 'samar',
               'message' => 'you can do this, I trust you and I know you can'
           ]);
   });
