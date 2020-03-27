@@ -12,7 +12,7 @@ class SendDataController extends Controller {
         ]);
     }
 
-    public function messageTosamar()
+    public function messageTosrania()
     {
         return response()->json([
             'name' => 'samar',
@@ -20,6 +20,8 @@ class SendDataController extends Controller {
         ]);
     }
 
+
 }
+
 
 ?>
