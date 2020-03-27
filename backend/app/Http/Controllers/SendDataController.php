@@ -19,6 +19,12 @@ class SendDataController extends Controller {
             'message' => 'you can do this, I trust you and I know you can'
         ]);
     }
+  public function messageTosamar(){
+      return response()->json([
+        'name' => 'samar',
+        'message' => 'you can do this, I trust you and I know you can'
+      ]);
+  }
 
 
 }

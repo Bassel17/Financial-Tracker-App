@@ -14,8 +14,9 @@ header('Content-type: application/json');
 |
 */
 
-//Route::get('/samar', 'SendDataController@messageTosamar');
-//Route::get('/rania', 'SendDataController@messageToRania');
+Route::get('/samar', 'SendDataController@messageTosamar');
+Route::get('/bassel', 'SendDataController@messageTobassel');
+Route::get('/rania', 'SendDataController@messageToRania');
  Route::get('/samar',function(){
     return response()->json([
               'name' => 'samar',
@@ -31,7 +32,9 @@ header('Content-type: application/json');
 
 
 
+
 Route::get('/', function(){
     return view('welcome');
 });
+
 
