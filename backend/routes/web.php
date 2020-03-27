@@ -14,21 +14,15 @@ header('Content-type: application/json');
 |
 */
 
-Route::get('/bassel', 'SendDataController@messageToBassel');
-
+Route::get('/rania', 'SendDataController@messageTorania');
 //Route::get('/rania', 'SendDataController@messageToRania');
- Route::get('/rania',function(){
+ Route::get('/samar',function(){
     return response()->json([
-              'name' => 'bassel',
+              'name' => 'rania',
               'message' => 'you can do this, I trust you and I know you can'
           ]);
   });
-  Route::get('/samar',function(){
-    return response()->json([
-              'name' => 'samar',
-              'message' => 'i love you , you are my sister'
-          ]);
-  });
+
 
 
 Route::get('/', function(){
