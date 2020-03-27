@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+ use Iltimate\support\facades\schema;
+ use Iltimate\support\facades\Blueprint;
+ use Iltimate\support\facades\Migration;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+       //
     }
 }
