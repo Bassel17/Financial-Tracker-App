@@ -17,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-//Route::get(‘categories’,’categories\CountryController@country’);
+//Route::get(‘users’,‘users\usersController@users’);
+
+
+Route::get('usersController{id}', 'Users\usersControllerByID');
+Route::post('usersController', 'Users\usersControllersave');
+Route::put('usersController{$idid}', 'Users\usersControllerUpdate');
+Route::delete('usersController{$id}', 'Users\usersControllerDelete');
+
