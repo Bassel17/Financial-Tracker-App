@@ -15,7 +15,7 @@ header('Content-type: application/json');
 */
 
 Route::get('/samar', 'SendDataController@messageTosamar');
-Route::get('/bassel', 'SendDataController@messageTobassel');
+Route::get('/bassel/{message}', 'SendDataController@messageTobassel');
 Route::get('/rania', 'SendDataController@messageToRania');
 
 
