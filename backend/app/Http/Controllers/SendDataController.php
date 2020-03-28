@@ -69,17 +69,19 @@ class SendDataController extends Controller {
 
 
    /*  public function messageTosrania()
+    public function messageTorania()
     {
         return response()->json([
-            'name' => 'samar',
+            'name' => 'rania',
             'message' => 'you can do this, I trust you and I know you can'
         ]);
     }
-  public function messageTosamar(){
-      return response()->json([
-        'name' => 'samar',
-        'message' => 'you can do this, I trust you and I know you can'
-      ]);
+
+    public function messageTosamar(){
+        return response()->json([
+            'name' => 'samar',
+            'message' => 'we love you Samar'
+        ]);
   }
  */
 
