@@ -10,21 +10,28 @@ class CategoryController extends Controller
 {
 
     public function getUserIncomeCategories($id){
-        $categories = Category::whereRaw("user_id = ".$id." and type = 'income'")->get();
+        $categories = Category::where('user_id',$id)->where('type','income')->get();
 
         return response()->json($categories,200);
     }
 
     public function getUserExpenseCategories($id){
-        $categories = Category::whereRaw("user_id = ".$id." and type = 'expense'")->get();
+        $categories = Category::where('user_id',$id)->where('type','expense')->get();
 
         return response()->json($categories,200);
     }
 
     public function getUserCategoryWithID($id,$category_id){
-        $category = Category::whereRaw("user_id = ".$id." and category_id = ".$category_id."")->get();
+        $category = Category::where('user_id',$id)->where('category_id',$category_id)->get();
+        
+        return response()->json($category,200); 
+    }
 
-        return response()->json($category,200);
+    public function updateCategory(Request $request){
+        $id = $request->id;
+        $name = $request->name;
+        $category = Category::where('category_id',$id)->update(['name' => $name]);
+        return response()->json($category,201);
     }
 
     public function addCategory(Request $request){
