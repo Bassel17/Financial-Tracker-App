@@ -14,7 +14,7 @@ header('Content-type: application/json');
 |
 */
 
-
+Route::get('users/{id}', 'SendDataController@UsersByID');
 
 Route::get('/', function(){
     return view('welcome');

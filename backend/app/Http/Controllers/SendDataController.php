@@ -1,24 +1,24 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use App\ Models\ModelusersModel;
+use App\Http\Model\ModelUsersModel;
 use Validator;
 
 class SendDataController extends Controller {
 
-    public function ModelusersModel()
+    public function ModelUsersModel()
     {
-       return respose ()->json (ModelusersModel::get(),200);
+       return respose ()->json (ModelUsersModel::get(),200);
     }
 
 
     public function UsersByID($id)
     {
-       $Users = ModelusersModel::find($id);
+       $Users = ModelUsersModel::find($id);
        if(is_null($Users)){
         return response()->json(["message"=>"Record not found"],404);
        }
-       return response()->json(ModelusersModel::find($id),200);
+       return response()->json(ModelUsersModel::find($id),200);
     }
 
 

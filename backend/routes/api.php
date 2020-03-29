@@ -20,8 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route::get(‘users’,‘users\usersController@users’);
 
 
-Route::get('usersController{id}', 'Users\usersControllerByID');
-Route::post('usersController', 'Users\usersControllersave');
-Route::put('usersController{$idid}', 'Users\usersControllerUpdate');
-Route::delete('usersController{$id}', 'Users\usersControllerDelete');
+ Route::get('users/{id}', 'SenDataController@UsersByID(&id)');
+// Route::post('usersController', 'Users\usersControllersave');
+// Route::put('usersController\{$id}', 'Users\usersControllerUpdate');
+// Route::delete('usersController\{$id}', 'Users\usersControllerDelete');
 
