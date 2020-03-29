@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/currencies','CurrencyController@getAllCurrencies');
 Route::get('/currencies/{id}','CurrencyController@getCurrencyWithID');
+Route::post('/users/signup','UserController@addUser');
+Route::get('/users','UserController@getAllUsers');
+Route::get('/users/{id}','UserController@getUserWithID');
 
 Route::get('/', function(){
     return view('welcome');
