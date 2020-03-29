@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-header('Content-type: application/json');
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +13,9 @@ header('Content-type: application/json');
 |
 */
 
-Route::get('users/{id}', 'SendDataController@UsersByID');
+
+Route::get('/currencies','CurrencyController@getAllCurrencies');
+Route::get('/currencies/{id}','CurrencyController@getCurrencyWithID');
 
 Route::get('/', function(){
     return view('welcome');
