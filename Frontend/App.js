@@ -10,17 +10,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import SwitchPage from './src/pages/SwitchPage';
 //import SettingPage from './src/pages/SettingPage';
 //import BurgerPage from './src/pages/BurgerPage';
-import SwitchPage from './src/pages/SwitchPage';
 
 //import Empty from './src/pages/emptyImage';
 //import SignupPage from './src/pages/SignupPage';
 //import OverviewPage from './src/pages/OverviewPage';
-
+//import BarChart from './src/pages/BarChart';
+import ReportPage from './src/pages/ReportPage';
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-   <SwitchPage/>
+//  < BarChart/>
+  <ReportPage/>
     //<SignupPage/>
     //<BurgerPage/>
     //<SettingPage/>
