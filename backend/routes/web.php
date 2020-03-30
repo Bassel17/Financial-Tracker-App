@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-header('Content-type: application/json');
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +14,16 @@ header('Content-type: application/json');
 */
 
 
+Route::get('/currencies','CurrencyController@getAllCurrencies');
+Route::get('/currencies/{id}','CurrencyController@getCurrencyWithID');
+Route::post('/users/signup','UserController@addUser');
+Route::get('/users','UserController@getAllUsers');
+Route::get('/users/{id}','UserController@getUserWithID');
+Route::post('/categories','CategoryController@addCategory');
+Route::put('/categories','CategoryController@updateCategory');
+Route::get('/users/{id}/income/categories','CategoryController@getUserIncomeCategories');
+Route::get('/users/{id}/expense/categories','CategoryController@getUserExpenseCategories');
+Route::get('/users/{id}/categories/{category_id}','CategoryController@getUserCategoryWithID');
 
 Route::get('/', function(){
     return view('welcome');
