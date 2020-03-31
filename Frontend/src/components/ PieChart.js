@@ -1,7 +1,5 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
-import { MDBContainer } from "mdbreact";
-import { View } from "native-base";
+import {View,Text} from 'react-native';
 
 class PieChart extends React.Component {
   state = {
@@ -21,12 +19,7 @@ class PieChart extends React.Component {
     if(this.props.index === 0){
     return (
       <View>
-        <MDBContainer>
-          <h3 className="mt-5 text-light">
-            <b>Pie chart</b>
-          </h3>
-          <Pie data={this.state.dataPie} options={{ responsive: true }} />
-        </MDBContainer>
+        <Text>fix this</Text>
       </View>
     );
   }

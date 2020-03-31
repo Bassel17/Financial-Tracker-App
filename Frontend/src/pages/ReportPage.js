@@ -1,12 +1,11 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Input,Button,Text,Header ,ButtonGroup } from 'react-native-elements';
-import {StyleSheet, View} from 'react-native';
+import { Header ,ButtonGroup } from 'react-native-elements';
+import {View} from 'react-native';
 
 import BarChart from '../components/BarChart';
 //import PieChart from '../components/PieChart';
 
-export default class OverviewPage extends React.Component {
+export default class ReportPage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -40,7 +39,6 @@ export default class OverviewPage extends React.Component {
                     buttons={buttons}
                     containerStyle={{width: "100%"}}
                 />
-               
                
                <BarChart index={this.state.selectedIndex}/>
                
