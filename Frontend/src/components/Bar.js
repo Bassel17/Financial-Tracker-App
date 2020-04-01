@@ -1,28 +1,41 @@
-// import {
-//   LineChart
-// } from "react-native-chart-kit";
-// import React,{ Component } from "react";
-// import { Dimensions,View,Text } from "react-native";
+import {
+  BarChart
+} from "react-native-chart-kit";
+import React,{ Component } from "react";
+import { Dimensions,View,Text } from "react-native";
 
-import React from 'react'
-import { AreaChart, Grid } from 'react-native-svg-charts'
-import * as shape from 'd3-shape'
+class Bar extends Component{
+render(){
+  const data = {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        data: [20, 45, 28, 80, 99, 43]
+      }
+    ]
+  };
 
-class Bar extends React.PureComponent {
-    render() {
-        const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80]
+  const chartConfig = {
+    backgroundGradientFrom: "#1E2923",
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: "#08130D",
+    backgroundGradientToOpacity: 0.5,
+    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5
+  };
 
-        return (
-            <AreaChart
-                style={{ height: 200 }}
-                data={data}
-                contentInset={{ top: 30, bottom: 30 }}
-                curve={shape.curveNatural}
-                svg={{ fill: 'rgba(134, 65, 244, 0.8)' }}
-            >
-                <Grid />
-            </AreaChart>
-        )
-    }
+  const screenWidth = Dimensions.get("window").width;
+  return(
+    <BarChart
+    data={data}
+    width={screenWidth}
+    height={220}
+    yAxisLabel="$"
+    chartConfig={chartConfig}
+    verticalLabelRotation={30}
+  />
+)
+}
 }
 export default Bar;
