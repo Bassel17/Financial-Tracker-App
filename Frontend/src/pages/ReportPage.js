@@ -2,7 +2,7 @@ import React from 'react';
 import { Header ,ButtonGroup } from 'react-native-elements';
 import {View} from 'react-native';
 
-import BarChart from '../components/BarChart';
+import Bar from '../components/Bar';
 //import PieChart from '../components/PieChart';
 
 export default class ReportPage extends React.Component {
@@ -40,7 +40,7 @@ export default class ReportPage extends React.Component {
                     containerStyle={{width: "100%"}}
                 />
                
-               <BarChart index={this.state.selectedIndex}/>
+               <Bar />
                
                 </View>
         );
