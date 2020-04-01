@@ -20,29 +20,29 @@ export default class ReportPage extends React.Component {
         const buttons = ["EXPENSES","INCOME"]
         const { selectedIndex } = this.state;
         return(
-            <View style={{
-                height:"100%",
-                width:"100%",
-                display:"flex",
-                alignItems:"center",
-                color:"black"
-            }}>
-              <Header
-                    placement="left"
-                    leftComponent={{ icon: 'menu', color: '#fff' }}
-                     centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
-                     rightComponent={{ icon: 'home', color: '#fff' }}
-                      />
-                <ButtonGroup
-                    onPress={this.updateIndex}
-                    selectedIndex={selectedIndex}
-                    buttons={buttons}
-                    containerStyle={{width: "100%"}}
-                />
+            // <View style={{
+            //     height:"100%",
+            //     width:"100%",
+            //     display:"flex",
+            //     alignItems:"center",
+            //     color:"black"
+            // }}>
+            //   <Header
+            //         placement="left"
+            //         leftComponent={{ icon: 'menu', color: '#fff' }}
+            //          centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
+            //          rightComponent={{ icon: 'home', color: '#fff' }}
+            //           />
+            //     <ButtonGroup
+            //         onPress={this.updateIndex}
+            //         selectedIndex={selectedIndex}
+            //         buttons={buttons}
+            //         containerStyle={{width: "100%"}}
+            //     />
                
-               <Bar />
-               
-                </View>
+            // </View>
+
+            <Bar/>
         );
     }
 }
