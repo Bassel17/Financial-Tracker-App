@@ -12,9 +12,7 @@ const data = {
 };
 
 const chartConfig = {
-  backgroundColor: "#e26a00",
-  backgroundGradientFrom: "#fb8c00",
-  backgroundGradientTo: "#ffa726",
+  backgroundColor: "blue",
   decimalPlaces: 2, // optional, defaults to 2dp
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
@@ -23,24 +21,27 @@ const chartConfig = {
   },
   propsForDots: {
     r: "6",
-    strokeWidth: "2",
-    stroke: "#ffa726"
+    strokeWidth: 2,
+    stroke: "#ffb726"
   }
 };
 export default class Bar extends React.Component {
   render() {
     const screenWidth = Dimensions.get("window").width;
     const height = 220;
-
-    return (
-      <View>
-        <BarChart
-          data={data}
-          width={screenWidth}
-          height={height}
-          chartConfig={chartConfig}
-        />
-      </View>
-    );
+    if(this.props.index === 0){
+      return (
+        <View>
+          <BarChart
+            data={data}
+            width={screenWidth}
+            height={height}
+            chartConfig={chartConfig}
+          />
+        </View>
+      );
+    }else{
+      return <Text>AM INCOME</Text>
+    }
   }
 }
