@@ -38,9 +38,10 @@ class TransactionController extends Controller
         $title = $request->title;
         $description = $request->description;
         $amount = $request->amount;
-        $interval = $request->interval;
+        $interval = isset($request->interval) ? $request->interval:null;
         $start_date = date('Y-m-d h:i:s', strtotime($request->start_date));
-        $end_date = date('Y-m-d h:i:s', strtotime($request->end_date));
+        $end_date_string = isset($request->end_date) ? date('Y-m-d h:i:s', strtotime($request->end_date)) : null;
+        $end_date = $end_date_string ;
         $currency_id = $request->currency_id;
         $transaction = Transaction::where('transaction_id',$id)->update([
             'title' => $title,
@@ -48,7 +49,8 @@ class TransactionController extends Controller
             'amount' => $amount,
             'start_date' => $start_date,
             'end_date' => $end_date,
-            'currency_id' => $currency_id
+            'currency_id' => $currency_id,
+            'interval' => $interval
         ]);
         return response()->json(['message'=>'successfully updated'],201);
     }
