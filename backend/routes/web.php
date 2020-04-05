@@ -25,6 +25,7 @@ Route::get('/users/{id}/income/categories','CategoryController@getUserIncomeCate
 Route::get('/users/{id}/expense/categories','CategoryController@getUserExpenseCategories');
 Route::get('/users/{id}/categories/{category_id}','CategoryController@getUserCategoryWithID');
 Route::post('/transactions','TransactionController@addTransaction');
+Route::put('/transactions','TransactionController@updateTransaction');
 Route::get('/users/{id}/transactions','TransactionController@getUserTransactionsWithID');
 
 Route::get('/', function(){

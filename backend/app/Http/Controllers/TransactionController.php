@@ -32,4 +32,24 @@ class TransactionController extends Controller
         $result=$transaction->save();
         return response()->json(['message','successfuly created transaction'],201);
     }
+
+    public function updateTransaction(Request $request){
+        $id = $request->transaction_id;
+        $title = $request->title;
+        $description = $request->description;
+        $amount = $request->amount;
+        $interval = $request->interval;
+        $start_date = date('Y-m-d h:i:s', strtotime($request->start_date));
+        $end_date = date('Y-m-d h:i:s', strtotime($request->end_date));
+        $currency_id = $request->currency_id;
+        $transaction = Transaction::where('transaction_id',$id)->update([
+            'title' => $title,
+            'description' => $description,
+            'amount' => $amount,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'currency_id' => $currency_id
+        ]);
+        return response()->json(['message'=>'successfully updated'],201);
+    }
 }
