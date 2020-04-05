@@ -54,4 +54,13 @@ class TransactionController extends Controller
         ]);
         return response()->json(['message'=>'successfully updated'],201);
     }
+
+    public function deleteTransaction(Request $request){
+        $id = $request->transaction_id;
+        $transaction = Transaction::where('transaction_id',$id)->delete();
+        if($transaction == 0){
+            return response()->json(['message'=>'user does not exist'],404);
+        }
+        return response()->json(['message'=>'successfully deleted'],200);
+    }
 }
