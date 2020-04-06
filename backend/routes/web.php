@@ -21,6 +21,7 @@ Route::get('/users','UserController@getAllUsers');
 Route::get('/users/{id}','UserController@getUserWithID');
 Route::post('/categories','CategoryController@addCategory');
 Route::put('/categories','CategoryController@updateCategory');
+Route::delete('/categories','CategoryController@deleteCategory');
 Route::get('/users/{id}/income/categories','CategoryController@getUserIncomeCategories');
 Route::get('/users/{id}/expense/categories','CategoryController@getUserExpenseCategories');
 Route::get('/users/{id}/categories/{category_id}','CategoryController@getUserCategoryWithID');
