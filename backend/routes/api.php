@@ -14,14 +14,3 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-//Route::get(‘users’,‘users\usersController@users’);
-
-
- Route::get('users/{id}', 'SenDataController@UsersByID(&id)');
-// Route::post('usersController', 'Users\usersControllersave');
-// Route::put('usersController\{$id}', 'Users\usersControllerUpdate');
-// Route::delete('usersController\{$id}', 'Users\usersControllerDelete');
-

@@ -9,22 +9,40 @@ use App\User;
 class UserController extends Controller
 {
     public function addUser(Request $request){
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->currency_id = $request->currency;
-        $user->save();
-        return response()->json($request);
+        $user = User::create([
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'password'=> $request->password,
+            'currency_id'=>$request->currency_id
+        ]);
+
+        $token = auth()->login($user);
+
+        return $this->respondWithToken($token);
     }
 
-    public function getAllUsers(){
-        $users = User::all();
-        return response()->json($users);
+    public function login(){
+        $credentials = request(['email','password']);
+
+        if($token = auth()->attempt($credentials)){
+            return $this->respondWithToken($token);
+        }
+
+        return response()->json(['error' => 'Unauthorized'],401);
     }
 
-    public function getUserWithID($id){
-        $user = User::where('user_id',$id)->get();
-        return response()->json($user);
+    public function logout(){
+        auth()->logout();
+        return response()->json(['message' => 'Successfully logged out'],200);
+    }
+
+    protected function respondWithToken($token){
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 3600
+        ],200);
+
     }
 }

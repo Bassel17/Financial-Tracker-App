@@ -14,24 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::post('/signup','UserController@addUser');
+Route::post('/login','UserController@login');
+Route::post('/logout','UserController@logout');
 Route::get('/currencies','CurrencyController@getAllCurrencies');
-Route::get('/currencies/{id}','CurrencyController@getCurrencyWithID');
-Route::post('/users/signup','UserController@addUser');
-Route::get('/users','UserController@getAllUsers');
-Route::get('/users/{id}','UserController@getUserWithID');
-Route::post('/categories','CategoryController@addCategory');
-Route::put('/categories','CategoryController@updateCategory');
-Route::delete('/categories','CategoryController@deleteCategory');
-Route::get('/users/{id}/income/categories','CategoryController@getUserIncomeCategories');
-Route::get('/users/{id}/expense/categories','CategoryController@getUserExpenseCategories');
-Route::get('/users/{id}/categories/{category_id}','CategoryController@getUserCategoryWithID');
-Route::post('/transactions','TransactionController@addTransaction');
-Route::put('/transactions','TransactionController@updateTransaction');
-Route::delete('/transactions','TransactionController@deleteTransaction');
-Route::get('/users/{id}/transactions','TransactionController@getUserTransactionsWithID');
 
-Route::get('/', function(){
-    return view('welcome');
+
+Route::group(['middleware'=>['jwt.verify']],function (){
+    Route::get('/currencies/{id}','CurrencyController@getCurrencyWithID');
+    Route::post('/categories','CategoryController@addCategory');
+    Route::put('/categories','CategoryController@updateCategory');
+    Route::delete('/categories','CategoryController@deleteCategory');
+    Route::get('/users/{id}/income/categories','CategoryController@getUserIncomeCategories');
+    Route::get('/users/{id}/expense/categories','CategoryController@getUserExpenseCategories');
+    Route::get('/users/{id}/categories/{category_id}','CategoryController@getUserCategoryWithID');
+    Route::post('/transactions','TransactionController@addTransaction');
+    Route::put('/transactions','TransactionController@updateTransaction');
+    Route::delete('/transactions','TransactionController@deleteTransaction');
+    Route::get('/users/{id}/transactions','TransactionController@getUserTransactionsWithID');
 });
 
 
