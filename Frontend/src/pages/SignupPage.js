@@ -3,6 +3,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input,Button} from 'react-native-elements';
 import {View} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import Validation from '../helpers/Validation';
+import * as SecureStore from 'expo-secure-store';
 
 
 export default class SignupPage extends React.Component{
@@ -19,8 +21,6 @@ export default class SignupPage extends React.Component{
         index:0
       }
     }
-    
-   
   }
   handleUserEmailChange = (text) => {
     this.setState({
@@ -49,8 +49,51 @@ export default class SignupPage extends React.Component{
       index:row
     }})
   }
- 
 
+  storeToken = async (token) => {
+    try{
+      const response = await SecureStore.setItemAsync("token", token);
+      console.log(response);
+    }catch(error){
+      console.log(error);
+    }
+  }
+ 
+  isValid = () => {
+    const userCredentials = {
+      userEmail: this.state.userEmail,
+      userPassword: this.state.userPassword
+    }
+    const userValidation = new Validation(userCredentials);
+    return userValidation.checkEmail() && userValidation.checkPassword();
+  }
+
+  registerUser = async ()=>{
+    const data = {
+      name:this.state.username,
+      email:this.state.userEmail,
+      password:this.state.userPassword,
+      currency_id:1
+    }
+    if(this.isValid()){
+      try{
+        const response = await fetch('http://fc32ff72.ngrok.io/signup',{
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        this.storeToken(result.access_token);
+      }catch(error){
+        console.log(error);
+      }
+    }else{
+      console.log("didn't come threw")
+    }
+  }
    
 
   render(){
@@ -125,7 +168,7 @@ export default class SignupPage extends React.Component{
           }
       />
       <View style = {{width:"50%",paddingLeft:70 , paddingBottom:40}}>
-<RNPickerSelect
+      <RNPickerSelect
              placeholder = {{}}
 
             onValueChange={(value,index) => this.handleCurrencyChange(value,index)}
@@ -150,6 +193,7 @@ export default class SignupPage extends React.Component{
           alignItems:"center",
           alignSelf:"flex-end"
         }}
+        onPress={()=>this.registerUser()}
       />
     </View>
 

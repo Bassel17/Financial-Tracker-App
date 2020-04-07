@@ -15,6 +15,7 @@
     "dependencies": "^0.0.1",
     "expo": "~36.0.0",
     "expo-font": "~8.0.0",
+    "expo-secure-store": "~8.0.0",
     "install": "^0.13.0",
     "native-base": "^2.13.12",
     "peer": "^0.5.2",
