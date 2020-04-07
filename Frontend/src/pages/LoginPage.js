@@ -25,13 +25,36 @@ export default class LoginPage extends React.Component{
     })
   }
 
+  storeToken = async (token) => {
+    try{
+      const response = await SecureStore.setItemAsync("token", token);
+      console.log(response);
+    }catch(error){
+      console.log(error);
+    }
+  }
+
   handleLogin = () =>{
     const userCredentials = {
-      userEmail: this.state.userEmail,
-      userPassword: this.state.userPassword
+      email: this.state.userEmail,
+      password: this.state.userPassword
     }
     const userValidation = new Validation(userCredentials);
     if(userValidation.checkEmail() && userValidation.checkPassword()){
+      try{
+        const response = await fetch('http://fc32ff72.ngrok.io/login',{
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userCredentials)
+        });
+        const result = await response.json();
+        this.storeToken(result.access_token);
+      }catch(error){
+        console.log(error);
+      }
       this.props.navigation.navigate('Empty');
     }else{
       console.log("error");
