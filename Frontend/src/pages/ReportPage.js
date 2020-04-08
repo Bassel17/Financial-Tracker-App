@@ -18,7 +18,7 @@ export default class ReportPage extends React.Component {
         super(props);
         this.state = {
             selectedIndex: 0,
-            selectedGraphindex: 0,
+            selectedGraphIndex: 0,
            
         }
     }
@@ -26,19 +26,16 @@ export default class ReportPage extends React.Component {
     updateIndex = (selectedIndex) => {
         this.setState({selectedIndex})
       }
-      updateGraphIndex = (selectedGraphindex) => {
-        if(this.state.selectedGraphindex === 0)
-          this.setState({selectedGraphindex : 1});
-        else this.setState({selectedGraphindex:0});
+      updateGraphIndex = (selectedGraphIndex) => {
+          this.setState({selectedGraphIndex})
       }
       
       render(){
         const buttons = ["EXPENSES","INCOME"]
         const Graphbuttons = ["BarChart","LineChart"]
-       // const Graph = ["BarChart","LineChart"]
         
         
-        const { selectedIndex,selectedGraphindex } = this.state;
+        const { selectedIndex,selectedGraphIndex } = this.state;
         return(
             <View style={{
                 height:"100%",
@@ -67,17 +64,19 @@ export default class ReportPage extends React.Component {
          title="Balance"
          color="grey"
          buttonStyle={{
-           width:"30%",
-           paddingTop:"30%"  
+           width:"100%" 
           
+         }}
+         containerStyle={{
+           width:"100%",
          }}
         
         />
         
 
            <ButtonGroup
-                    onPress={this.updateGraphindex}
-                    selectedIndex={ selectedGraphindex}
+                    onPress={this.updateGraphIndex}
+                    selectedIndex={ selectedGraphIndex}
                     buttons={ Graphbuttons}
                     containerStyle={{width: "100%"}}
                 />
@@ -85,7 +84,7 @@ export default class ReportPage extends React.Component {
        
 
 
-                {selectedGraphindex ===0 ? <Bar index={this.state.selectedIndex}/> : <LineChartComponent index={this.state.selectedGraphindex}/>}  
+                {selectedGraphIndex === 0 ? <Bar index={this.state.selectedIndex}/> : <LineChartComponent index={this.state.selectedIndex}/>}  
             
                 </View>
         );

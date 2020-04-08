@@ -34,7 +34,7 @@ export default class LoginPage extends React.Component{
     }
   }
 
-  handleLogin = () =>{
+  handleLogin = async () =>{
     const userCredentials = {
       email: this.state.userEmail,
       password: this.state.userPassword

@@ -13,7 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import BurgerPage from './src/pages/BurgerPage';
 //import OverviewPage from './src/pages/OverviewPage';
 //import BarChart from './src/pages/BarChart';
-//import ReportPage from './src/pages/ReportPage';
+import ReportPage from './src/pages/ReportPage';
 import * as SecureStore from 'expo-secure-store';
 const Stack = createStackNavigator();
 
