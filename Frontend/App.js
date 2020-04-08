@@ -35,18 +35,18 @@ export default class App extends React.Component {
   render(){
     return (
       //  < BarChart/>
-        //<ReportPage/>
+        <ReportPage/>
           //<SignupPage/>
           //<BurgerPage/>
           //<SettingPage/>
          // <Groceries/>
-            <NavigationContainer>
-            <Stack.Navigator>
-             <Stack.Screen name="Login" component={LoginPage} />
-              <Stack.Screen name="Empty" component={Empty} />
-              <Stack.Screen name="SignupPage" component={SignupPage} />
-           </Stack.Navigator>
-         </NavigationContainer> 
+        //     <NavigationContainer>
+        //     <Stack.Navigator>
+        //      <Stack.Screen name="Login" component={LoginPage} />
+        //       <Stack.Screen name="Empty" component={Empty} />
+        //       <Stack.Screen name="SignupPage" component={SignupPage} />
+        //    </Stack.Navigator>
+        //  </NavigationContainer> 
     );
   }
 }
