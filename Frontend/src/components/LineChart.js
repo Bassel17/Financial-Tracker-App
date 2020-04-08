@@ -40,7 +40,7 @@ export default class LineChartComponent extends React.Component {
   if(this.props.index === 0){
       return(
 <View>
-<Text>BarChart</Text>
+<Text style={{textAlign:"center"}}>LineChart</Text>
 <LineChart
      data={data}
      width={screenWidth}
@@ -54,7 +54,7 @@ export default class LineChartComponent extends React.Component {
     }else{
       return(
         <View>
-          <Text>BarChart</Text>
+          <Text>LineChart</Text>
         </View>
       )
     }

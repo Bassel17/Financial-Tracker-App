@@ -6,6 +6,8 @@ import { Button } from 'react-native';
 import Bar from '../components/Bar';
 import Pie from '../components/Pie';
 import LineChartComponent from '../components/LineChart';
+//import { PieChart } from 'react-native-chart-kit';
+import PieChart from '../components/PieChart';
 //import { LineChart } from 'react-native-chart-kit';
 
 export default class ReportPage extends React.Component {
@@ -19,7 +21,7 @@ export default class ReportPage extends React.Component {
         this.state = {
             selectedIndex: 0,
             selectedGraphIndex: 0,
-           
+            selectedPieIndex:0,
         }
     }
 
@@ -29,13 +31,18 @@ export default class ReportPage extends React.Component {
       updateGraphIndex = (selectedGraphIndex) => {
           this.setState({selectedGraphIndex})
       }
+      updatePieIndex = (selectedPieIndex) => {
+        this.setState({selectedPieIndex})
+    }
       
       render(){
         const buttons = ["EXPENSES","INCOME"]
         const Graphbuttons = ["BarChart","LineChart"]
+        const Piebuttons = ["PieChart","Pie"]
         
+
         
-        const { selectedIndex,selectedGraphIndex } = this.state;
+        const { selectedIndex,selectedGraphIndex,selectedPieIndex } = this.state;
         return(
             <View style={{
                 height:"100%",
@@ -80,12 +87,19 @@ export default class ReportPage extends React.Component {
                     buttons={ Graphbuttons}
                     containerStyle={{width: "100%"}}
                 />
+                <ButtonGroup
+                    onPress={this.updatePieIndex}
+                    selectedIndex={ selectedPieIndex}
+                    buttons={ Piebuttons}
+                    containerStyle={{width: "100%"}}
+                />
+                
                 
        
 
 
                 {selectedGraphIndex === 0 ? <Bar index={this.state.selectedIndex}/> : <LineChartComponent index={this.state.selectedIndex}/>}  
-            
+                 {selectedPieIndex ===0 ? <Pie index={this.state.selectedIndex}/> : <PieChart index={this .state.selectedIndex}/>}
                 </View>
         );
     }

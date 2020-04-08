@@ -1,16 +1,9 @@
 import React from "react";
 import {  Dimensions, Style, View } from "react-native";
 import { PieChart, BarChart,LineChart,ContributionGraph } from "react-native-chart-kit";
-import { Button } from 'react-native';
- const data = {
-  data : [
-
-{ name: 'travel', population: 21500000, color: 'rgba(131, 167, 234, 1)', legendFontSize: 15 },
-{ name: 'Taxi', population: 2800000, color: '#F00', legendFontSize: 15 },
-{ name: 'grocerie', population: 527612, color: 'red',  legendFontSize: 15 },
-{ name: 'gym', population: 8538000, color: 'grey',  legendFontSize: 15 },
-{ name: 'food', population: 11920000, color: 'rgb(0, 0, 255)',  legendFontSize: 15 }
-],
+import { Text } from 'react-native';
+const data = {
+  
 commitsData : [
  { date: '2017-01-02', count: 1 },
  { date: '2017-01-03', count: 2 },
@@ -56,33 +49,20 @@ render(){
     return(<View>
 
 
-
-
-
-
-      <PieChart
-      data={data.data}
-      width={screenWidth}
-      height={220}
-      chartConfig={chartConfig}
-      accessor="population"
-      backgroundColor="transparent"
-      paddingLeft="15"
-      absolute
-  />
-  </View>
-    );
-  } else{
-return(
-  <View>
-    {/*  <ContributionGraph
+<ContributionGraph
  values={data.commitsData}
   endDate={new Date('2017-04-01')}
   numDays={105}
   width={screenWidth}
   height={220}
   chartConfig={chartConfig}
-/> */}
+/> 
+  </View>
+    );
+  } else{
+return(
+  <View>
+    <Text>Pie</Text>
   </View>
 )
   }

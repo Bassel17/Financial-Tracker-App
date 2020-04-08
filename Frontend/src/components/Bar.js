@@ -48,7 +48,7 @@ export default class Bar extends React.Component {
          
         <View>
            
-        <Text>BarChart</Text>
+        <Text style={{textAlign:"center"}}>BarChart</Text>
           <BarChart
             data={data}
             width={screenWidth}
