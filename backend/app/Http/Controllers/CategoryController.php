@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Category;
 
+use Exception;
+
 class CategoryController extends Controller
 {
 
     public function getUserIncomeCategories($id){
         $categories = Category::where('user_id',$id)->where('type','income')->get();
+        if($categories === 0)return response()->json(['message'=>'categories not found'],404);;
         return response()->json($categories,200);
     }
 

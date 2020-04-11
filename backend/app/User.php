@@ -20,16 +20,16 @@ class User extends Authenticatable implements JWTSubject
         'password','remember_token'
     ];
 
-    protected $casts = [
-        'email_verfied_at' => 'datetime'
-    ];
-
     public function getJWTIdentifier(){
         return $this->getKey();
     }
 
     public function getJWTCustomClaims(){
         return [];
+    }
+
+    public function getUserId(){
+        return $this->primaryKey;
     }
 
     public function setPasswordAttribute($password){
