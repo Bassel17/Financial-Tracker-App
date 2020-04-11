@@ -21,7 +21,7 @@ class UserController extends Controller
             $user_id = $user->id;
             return $this->respondWithToken($token,$user_id);
         }catch(Exception $e){
-            return response()->json(['error'=>'user not added'],500);
+            return response()->json(['error'=>'user not added','status'=>500],500);
         }
     }
 
@@ -34,18 +34,18 @@ class UserController extends Controller
                 return $this->respondWithToken($token,$user_id);
             }
 
-            return response()->json(['error' => 'Unauthorized'],401);
+            return response()->json(['error' => 'Unauthorized','status'=>401],401);
         }catch(Exception $e){
-            return response()->json(['error'=>'user not does not exist','status'=>404],404);
+            return response()->json(['error'=>'server error','status'=>500],500);
         }
     }
 
     public function logout(){
         try{
             auth()->logout();
-            return response()->json(['message' => 'Successfully logged out',],200);
+            return response()->json(['message' => 'Successfully logged out',"status"=>200],200);
         }catch(Exception $e){
-            return response()->json(['error' => 'did not log out, possible network error'],400);
+            return response()->json(['error' => 'did not log out, possible network error'],500);
         }
     }
 

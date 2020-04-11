@@ -18,10 +18,9 @@ Route::post('/signup','UserController@addUser');
 Route::post('/login','UserController@login');
 Route::post('/logout','UserController@logout');
 Route::get('/currencies','CurrencyController@getAllCurrencies');
-
+Route::get('/currencies/{id}','CurrencyController@getCurrencyWithID');
 
 Route::group(['middleware'=>['jwt.verify']],function (){
-    Route::get('/currencies/{id}','CurrencyController@getCurrencyWithID');
     Route::post('/categories','CategoryController@addCategory');
     Route::put('/categories','CategoryController@updateCategory');
     Route::delete('/categories','CategoryController@deleteCategory');

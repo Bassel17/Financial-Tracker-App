@@ -15,11 +15,11 @@ class TransactionController extends Controller
         try{
             $transactions = Transaction::where('user_id',$id)->get();
             if($transaction == 0){
-                return response()->json(['error'=> "transaction not found"],404);
+                return response()->json(['error'=> "user not found","status"=>404],404);
             }
             return response()->json($transactions,200);
         }catch(Exception $e){
-            return response()->json(['error' => "server error, possible network problem"],500);
+            return response()->json(['error' => "server error","status"=>500],500);
         }
     }
 
@@ -40,11 +40,11 @@ class TransactionController extends Controller
             $transaction->currency_id = $request->currency_id;
             $result=$transaction->save();
             if($result == 0){
-            return response()->json(['message'=>'transaction not added'],404);
+            return response()->json(['error'=>'transaction not added',"status"=>400],400);
             }
-            return response()->json(['message'=>'successfuly created transaction'],201);
+            return response()->json(['message'=>'successfully created transaction',"status"=>201],201);
         }catch(Exception $e){
-            return response()->json(['error' => "server error, possible network problem"],500);
+            return response()->json(['error' => "server error","status"=>500],500);
         }
     }
 
@@ -69,11 +69,11 @@ class TransactionController extends Controller
                 'interval' => $interval
             ]);
             if($transaction == 0){
-                return response()->json(['message'=>'user does not exist'],404);
+                return response()->json(['error'=>'transaction does not exist',"status"=>404],404);
             }
-            return response()->json(['message'=>'successfully updated'],201);
+            return response()->json(['message'=>'successfully updated',"status"=>201],201);
         }catch(Exception $e){
-            return response()->json(['error' => "server error, possible network problem"],500);
+            return response()->json(['error' => "server error","status"=>500],500);
         }
     }
 
@@ -82,11 +82,11 @@ class TransactionController extends Controller
             $id = $request->transaction_id;
             $transaction = Transaction::where('transaction_id',$id)->delete();
             if($transaction == 0){
-                return response()->json(['message'=>'user does not exist'],404);
+                return response()->json(['error'=>'transaction does not exist',"status"=>404],404);
             }
-            return response()->json(['message'=>'successfully deleted'],200);
+            return response()->json(['message'=>'successfully deleted',"status"=>200],200);
         }catch(Exception $e){
-            return response()->json(['error' => "transaction not deleted ,server error, possible network problem"],500);
+            return response()->json(['error' => "transaction not deleted ,server error","status"=>500],500);
         }
     }
 }
