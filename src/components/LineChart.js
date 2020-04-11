@@ -3,18 +3,14 @@ import {  Dimensions, Text, View } from "react-native";
 import {  BarChart,LineChart,ContributionGraph } from "react-native-chart-kit";
 
 
-const data = {
+
+let data = {
   labels: ["January", "February", "March", "April", "May", "June"],
   datasets: [
     {
       data: [20, 45, 28, 80, 99, 43]
     }
   ],
- 
- 
-
- 
-  
 };
 
 const chartConfig = {
@@ -34,48 +30,40 @@ const chartConfig = {
     stroke: "#ffb726"
   }
 };
-export default class Bar extends React.Component {
-  
 
- 
+
+export default class LineChartComponent extends React.Component {
   render() {
     const screenWidth = Dimensions.get("window").width;
     const height = 220;
    
-    if(this.props.index === 0){
-      return (
-        
-         
-        <View>
-           
-        <Text style={{textAlign:"center"}}>BarChart</Text>
-          <BarChart
-            data={data}
-            width={screenWidth}
-            height={height}
-            chartConfig={chartConfig}
-          />
-          
-    
-             </View>
-              );
-              
+  if(this.props.index === 0){
+      return(
+<View>
+<Text>BarChart</Text>
+<LineChart
+     data={data}
+     width={screenWidth}
+     height={220}
+     chartConfig={chartConfig}
+     bezier
+     
+   />
+</View>
+      )
     }else{
-      return (
-           
-   <View>
-           
-           <Text>PieChart</Text>
-           {/* <ContributionGraph
- values={data.data}
-  endDate={new Date('2017-04-01')}
-  numDays={105}
-  width={screenWidth}
-  height={220}
-  chartConfig={chartConfig}
-/>  */}
-                </View>);
+      return(
+        <View>
+          <Text>BarChart</Text>
+        </View>
+      )
     }
-      
+    }
   }
-}
+   
+
+
+  
+
+ 
+ 
