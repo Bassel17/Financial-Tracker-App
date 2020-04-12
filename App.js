@@ -19,18 +19,18 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
 
-  componentDidMount(){
-    this.getToken();
-  }
+  // componentDidMount(){
+  //   this.getToken();
+  // }
 
-  getToken = async () => {
-    try{
-      const response = await SecureStore.getItemAsync("token", token);
-      console.log(response);
-    }catch(error){
-      console.log(error);
-    }
-  }
+  // getToken = async () => {
+  //   try{
+  //     const response = await SecureStore.getItemAsync("token", token);
+  //     console.log(response);
+  //   }catch(error){
+  //     console.log(error);
+  //   }
+  // }
 
   render(){
     return (

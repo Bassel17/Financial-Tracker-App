@@ -77,7 +77,7 @@ export default class SignupPage extends React.Component{
     }
     if(this.isValid()){
       try{
-        const response = await fetch('http://fc32ff72.ngrok.io/signup',{
+        const response = await fetch('https://wallet-keeper.herokuapp.com/api/signup',{
           method: 'POST',
           headers: {
             Accept: 'application/json',

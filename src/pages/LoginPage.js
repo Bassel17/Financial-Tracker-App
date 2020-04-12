@@ -42,7 +42,7 @@ export default class LoginPage extends React.Component{
     const userValidation = new Validation(userCredentials);
     if(userValidation.checkEmail() && userValidation.checkPassword()){
       try{
-        const response = await fetch('http://fc32ff72.ngrok.io/login',{
+        const response = await fetch('https://wallet-keeper.herokuapp.com/api/login',{
           method: 'POST',
           headers: {
             Accept: 'application/json',

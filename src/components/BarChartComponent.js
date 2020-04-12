@@ -1,17 +1,16 @@
 import React from "react";
-import {  Dimensions, Text, View } from "react-native";
-import {  BarChart,LineChart,ContributionGraph } from "react-native-chart-kit";
+import {Dimensions,View } from "react-native";
+import { BarChart} from "react-native-chart-kit";
 
 
-
-let data = {
+const data = {
   labels: ["January", "February", "March", "April", "May", "June"],
   datasets: [
     {
       data: [20, 45, 28, 80, 99, 43]
     }
-  ],
-};
+  ]
+}
 
 const chartConfig = {
   backgroundColor: "blue",
@@ -30,40 +29,19 @@ const chartConfig = {
     stroke: "#ffb726"
   }
 };
-
-
-export default class LineChartComponent extends React.Component {
-  render() {
+export default function BarChartComponent(props){
+  
     const screenWidth = Dimensions.get("window").width;
     const height = 220;
    
-  if(this.props.index === 0){
-      return(
-<View>
-<Text>BarChart</Text>
-<LineChart
-     data={data}
-     width={screenWidth}
-     height={220}
-     chartConfig={chartConfig}
-     bezier
-     
-   />
-</View>
-      )
-    }else{
-      return(
-        <View>
-          <Text>BarChart</Text>
-        </View>
-      )
-    }
-    }
-  }
-   
-
-
-  
-
- 
- 
+  return (   
+    <View>
+      <BarChart
+        data={data}
+        width={screenWidth}
+        height={height}
+        chartConfig={chartConfig}
+      />
+    </View>
+  );
+}
