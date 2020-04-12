@@ -51,7 +51,8 @@ export default class LoginPage extends React.Component{
           body: JSON.stringify(userCredentials)
         });
         const result = await response.json();
-        this.storeToken(result.access_token);
+        await this.storeToken(result.access_token);
+        const token = await SecureStore.getItemAsync("token", token);
       }catch(error){
         console.log(error);
       }

@@ -19,34 +19,34 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
 
-  // componentDidMount(){
-  //   this.getToken();
-  // }
+  componentDidMount(){
+    this.getToken();
+  }
 
-  // getToken = async () => {
-  //   try{
-  //     const response = await SecureStore.getItemAsync("token", token);
-  //     console.log(response);
-  //   }catch(error){
-  //     console.log(error);
-  //   }
-  // }
+  getToken = async () => {
+    try{
+      const response = await SecureStore.getItemAsync("token", token);
+      console.log(response);
+    }catch(error){
+      console.log(error);
+    }
+  }
 
   render(){
     return (
       //  < BarChart/>
-        <ReportPage/>
+       // <ReportPage/>
           //<SignupPage/>
           //<BurgerPage/>
           //<SettingPage/>
          // <Groceries/>
-        //     <NavigationContainer>
-        //     <Stack.Navigator>
-        //      <Stack.Screen name="Login" component={LoginPage} />
-        //       <Stack.Screen name="Empty" component={Empty} />
-        //       <Stack.Screen name="SignupPage" component={SignupPage} />
-        //    </Stack.Navigator>
-        //  </NavigationContainer> 
+            <NavigationContainer>
+            <Stack.Navigator>
+             <Stack.Screen name="Login" component={LoginPage} />
+              <Stack.Screen name="Empty" component={Empty} />
+              <Stack.Screen name="SignupPage" component={SignupPage} />
+           </Stack.Navigator>
+         </NavigationContainer> 
     );
   }
 }

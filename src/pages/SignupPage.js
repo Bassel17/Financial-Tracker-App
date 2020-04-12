@@ -54,6 +54,7 @@ export default class SignupPage extends React.Component{
     try{
       const response = await SecureStore.setItemAsync("token", token);
       console.log(response);
+      return response
     }catch(error){
       console.log(error);
     }
@@ -86,7 +87,8 @@ export default class SignupPage extends React.Component{
           body: JSON.stringify(data)
         });
         const result = await response.json();
-        this.storeToken(result.access_token);
+        const storedToken = await this.storeToken(result.access_token);
+        const token = await SecureStore.getItemAsync("token", token);
       }catch(error){
         console.log(error);
       }

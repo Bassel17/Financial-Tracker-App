@@ -1,8 +1,7 @@
 import React from 'react';
 import {ButtonGroup } from 'react-native-elements';
 import {View} from 'react-native';
-import BarChartComponent from '../components/BarChartComponent';
-import LineChartComponent from '../components/LineChartComponent';
+import GraphComponent from '../components/GraphComponent';
 
 export default class ReportPage extends React.Component {
   constructor(props){
@@ -23,7 +22,7 @@ export default class ReportPage extends React.Component {
       
   render(){
     const buttons = ["EXPENSES","INCOME"];
-    const Graphbuttons = ["BarChart","LineChart"]; 
+    const Graphbuttons = ["Bargraph","Linechart"]; 
     const { selectedIndex,selectedGraphIndex } = this.state;
     return(
       <View style={{
@@ -46,8 +45,9 @@ export default class ReportPage extends React.Component {
           buttons={ Graphbuttons}
           containerStyle={{width: "100%"}}
         />
-        <BarChartComponent/>
-        <LineChartComponent/>
+        {selectedIndex === 0 ? 
+        <GraphComponent index={selectedGraphIndex} data ="take this"/> :
+        <GraphComponent index={selectedGraphIndex} data ="and this"/>}
             
       </View>
     );
