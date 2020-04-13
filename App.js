@@ -13,7 +13,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import BurgerPage from './src/pages/BurgerPage';
 //import OverviewPage from './src/pages/OverviewPage';
 //import BarChart from './src/pages/BarChart';
-import ReportPage from './src/pages/ReportPage';
+//import ReportPage from './src/pages/ReportPage';
+import Drawerpage from './src/pages/Drawerpage';
 import * as SecureStore from 'expo-secure-store';
 const Stack = createStackNavigator();
 
@@ -34,19 +35,20 @@ export default class App extends React.Component {
 
   render(){
     return (
-      //  < BarChart/>
-       // <ReportPage/>
+      <Drawerpage/>
+        //< BarChart/>
+        //<ReportPage/>
           //<SignupPage/>
           //<BurgerPage/>
           //<SettingPage/>
          // <Groceries/>
-            <NavigationContainer>
-            <Stack.Navigator>
-             <Stack.Screen name="Login" component={LoginPage} />
-              <Stack.Screen name="Empty" component={Empty} />
-              <Stack.Screen name="SignupPage" component={SignupPage} />
-           </Stack.Navigator>
-         </NavigationContainer> 
+            //<NavigationContainer>
+            //<Stack.Navigator>
+             //<Stack.Screen name="Login" component={LoginPage} />
+             // <Stack.Screen name="Empty" component={Empty} />
+             // <Stack.Screen name="SignupPage" component={SignupPage} />
+           //</Stack.Navigator>
+         //</NavigationContainer> 
     );
   }
 }
